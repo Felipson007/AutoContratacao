@@ -82,7 +82,7 @@
         <p>Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.</p>
         <p class="text-font" >Precisa daquela força no orçamento e tem saldo parado no FGTS?</p>
         <p class="text-font">Saiba mais! Consulte nossas especialistas.</p>
-        <b-button variant="primary">Saiba Mais</b-button>
+        <a href="#" class="btn btn-primary btn1" role="button"> <i class="fa-brands fa-whatsapp"> </i> Fale com a Gente sobre Empréstimo Consignado <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i></a>
       </b-col>
 
     </b-row>
@@ -100,7 +100,7 @@
         <p>Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.</p>
         <p class="text-font" >Precisa daquela força no orçamento e tem saldo parado no FGTS?</p>
         <p class="text-font">Saiba mais! Consulte nossas especialistas.</p>
-        <b-button variant="primary">Saiba Mais</b-button>
+        <a href="#" class="btn btn-primary btn1" role="button"> <i class="fa-brands fa-whatsapp"> </i> Fale com a Gente sobre Empréstimo Consignado <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i></a>
       </b-col>
 
     </b-row>
@@ -118,7 +118,7 @@
         <p>Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.</p>
         <p class="text-font" >Precisa daquela força no orçamento e tem saldo parado no FGTS?</p>
         <p class="text-font">Saiba mais! Consulte nossas especialistas.</p>
-        <b-button variant="primary">Saiba Mais</b-button>
+        <a href="#" class="btn btn-primary btn1" role="button"> <i class="fa-brands fa-whatsapp"> </i> Fale com a Gente sobre Empréstimo Consignado <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i></a>
       </b-col>
 
     </b-row>
@@ -136,7 +136,7 @@
         <p>Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.</p>
         <p class="text-font" >Precisa daquela força no orçamento e tem saldo parado no FGTS?</p>
         <p class="text-font">Saiba mais! Consulte nossas especialistas.</p>
-        <b-button variant="primary">Saiba Mais</b-button>
+        <a href="#" class="btn btn-primary btn1" role="button"> <i class="fa-brands fa-whatsapp"> </i> Fale com a Gente sobre Empréstimo Consignado <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i></a>
       </b-col>
 
     </b-row>
@@ -266,6 +266,9 @@ const redirect = (url) => {
 /* section about */
 .about-section{
   margin-bottom: 5rem;
+}
+.btn1{
+  background-color: green;
 }
 .img-fluid{
   width: 70%;
