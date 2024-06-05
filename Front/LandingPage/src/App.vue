@@ -69,7 +69,61 @@
       </b-row>
     </b-container>
     <!-- About Section -->
-    <b-container class="mt-5 mb-6">
+    <b-container class="mt-5 mb-6 about-section">
+    <b-row>
+      <div class="tittle-about">
+        <h3>Antecipação FGTS</h3>
+      </div>
+      <b-col md="5 img-about">
+        <img src="@/assets/Logo.jpg" alt="Imagem da seção" class="img-fluid">
+      </b-col>
+      <b-col md="6" class="text-about">
+        <p>O crédito consignado tem sido uma alternativa inteligente para todos que tem acesso e precisam de dinheiro rápido e com excelentes taxas. Essse crédito está disponível para: aposentados e pensionistas INSS, servidores públicos ativos e inativos (federais, estaduais e municipais).</p>
+        <p>Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.</p>
+        <p class="text-font" >Precisa daquela força no orçamento e tem saldo parado no FGTS?</p>
+        <p class="text-font">Saiba mais! Consulte nossas especialistas.</p>
+        <b-button variant="primary">Saiba Mais</b-button>
+      </b-col>
+
+    </b-row>
+  </b-container>
+  <b-container class="mt-5 mb-6 about-section">
+    <b-row>
+      <div class="tittle-about">
+        <h3>Antecipação FGTS</h3>
+      </div>
+      <b-col md="5 img-about">
+        <img src="@/assets/Logo.jpg" alt="Imagem da seção" class="img-fluid">
+      </b-col>
+      <b-col md="6" class="text-about">
+        <p>O crédito consignado tem sido uma alternativa inteligente para todos que tem acesso e precisam de dinheiro rápido e com excelentes taxas. Essse crédito está disponível para: aposentados e pensionistas INSS, servidores públicos ativos e inativos (federais, estaduais e municipais).</p>
+        <p>Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.</p>
+        <p class="text-font" >Precisa daquela força no orçamento e tem saldo parado no FGTS?</p>
+        <p class="text-font">Saiba mais! Consulte nossas especialistas.</p>
+        <b-button variant="primary">Saiba Mais</b-button>
+      </b-col>
+
+    </b-row>
+  </b-container>
+  <b-container class="mt-5 mb-6 about-section">
+    <b-row>
+      <div class="tittle-about">
+        <h3>Antecipação FGTS</h3>
+      </div>
+      <b-col md="5 img-about">
+        <img src="@/assets/Logo.jpg" alt="Imagem da seção" class="img-fluid">
+      </b-col>
+      <b-col md="6" class="text-about">
+        <p>O crédito consignado tem sido uma alternativa inteligente para todos que tem acesso e precisam de dinheiro rápido e com excelentes taxas. Essse crédito está disponível para: aposentados e pensionistas INSS, servidores públicos ativos e inativos (federais, estaduais e municipais).</p>
+        <p>Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.</p>
+        <p class="text-font" >Precisa daquela força no orçamento e tem saldo parado no FGTS?</p>
+        <p class="text-font">Saiba mais! Consulte nossas especialistas.</p>
+        <b-button variant="primary">Saiba Mais</b-button>
+      </b-col>
+
+    </b-row>
+  </b-container>
+  <b-container class="mt-5 mb-6 about-section">
     <b-row>
       <div class="tittle-about">
         <h3>Antecipação FGTS</h3>
@@ -120,7 +174,6 @@
         </div>
       </div>
     </footer>
-
   </div>
 </template>
 
@@ -135,8 +188,7 @@ const redirect = (url) => {
 
 <style scoped>
 .Main-Section{
-  height: 90vh;
-  margin-top: 65px;
+  margin-top: 58px;
 }
 /* Navbar styles */
 .logo{
@@ -167,7 +219,7 @@ const redirect = (url) => {
   position: relative;
   text-align: center;
   color: white;
-  height: 500px;
+  height: 530px;
   background: linear-gradient(135deg, #add8e6, #00008b);
 }
 .hero-img img{
@@ -212,21 +264,24 @@ const redirect = (url) => {
 }
 
 /* section about */
+.about-section{
+  margin-bottom: 5rem;
+}
 .img-fluid{
   width: 70%;
   display: flex;
-  height: 95%;
+  height: 100%;
   justify-content: space-around;
   align-items: center;
   border-radius: 10%;
 }
 .img-about{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 .tittle-about h3{
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   font-size: 2.5rem;
   font-weight: 800;
 }
@@ -246,7 +301,6 @@ font-size: 1.22rem;
 .footer {
   background-color: #f8f9fa;
   padding: 60px 0 0 0;
-  margin-top: 50%;
   width: 100%;
   position: absolute;
 }
