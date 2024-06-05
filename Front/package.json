@@ -4,6 +4,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "bootstrap": "^5.3.3",
     "bootstrap-vue": "^2.23.1",
-    "bootstrap-vue-3": "^0.3.12"
+    "bootstrap-vue-3": "^0.3.12",
+    "yarn": "^1.22.22"
   }
 }

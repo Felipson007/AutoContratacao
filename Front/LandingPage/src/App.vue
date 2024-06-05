@@ -1,33 +1,32 @@
 <template>
   <div>
-  <header>
- <!-- Navbar -->
- <b-navbar variant="light" type="light" fixed="top">
-      <b-container class="d-flex justify-content-between align-items-center">
-        <b-navbar-brand class="d-flex align-items-center">
-          <img src="@/assets/logo.svg" alt="Logo da Empresa" class="d-inline-block align-top logo" />
-          <span class="ml-2">Nome da Empresa</span>
-        </b-navbar-brand>
+    <header>
+      <!-- Navbar -->
+      <b-navbar variant="light" type="light" fixed="top">
+        <b-container class="d-flex justify-content-between align-items-center">
+          <b-navbar-brand class="d-flex align-items-center">
+            <img src="@/assets/Logo.jpg" alt="Logo da Empresa" class="d-inline-block align-top logo" />
+            <span class="ml-2">Nome da Empresa</span>
+          </b-navbar-brand>
 
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item to="#">Home</b-nav-item>
-          <b-nav-item to="#">Sobre</b-nav-item>
-          <b-nav-item to="#">Contato</b-nav-item>
-        </b-navbar-nav>
-      </b-container>
-    </b-navbar>
-  </header>
-   
-
-    <!-- Section with Image and Text -->
-    <section class="hero-section">
-      <img src="@/assets/Emprestimo_FGTS-1.jpg" alt="Hero Image" class="hero-image">
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item to="#">Home</b-nav-item>
+            <b-nav-item to="#">Sobre</b-nav-item>
+            <b-nav-item to="#">Contato</b-nav-item>
+          </b-navbar-nav>
+        </b-container>
+      </b-navbar>
+    </header>
+    <!--Main Section-->
+    <div class="Main-Section">
+      <section class="hero-section">
+      <div class="hero-img">
+        <img src="@/assets/Logo.jpg" alt="Logo da Empresa"  />
+      </div>
       <div class="hero-text">
-        <h1>Bem-vindo à Nossa Empresa</h1>
-        <p>Descrição sobre a empresa.</p>
+        <h1>Crédito inteligente para cada necessidade.</h1>
       </div>
     </section>
-
     <!-- Cards Section -->
     <b-container class="cards-section">
       <b-row class="justify-content-center">
@@ -36,33 +35,42 @@
             <template #header>
               <i class="fa-solid fa-file clickable-icon" @click="redirect('https://www.example.com')"></i>
             </template>
-            <b-card-text>
-              Texto do Card 1
-            </b-card-text>
+            <h1>Antecipação FGTS</h1>
+            <p>Antecipe seu FGTS e tenha ainda hoje o dinheiro na sua conta.</p>
           </b-card>
         </b-col>
         <b-col md="4" class="card-container">
           <b-card class="custom-card">
             <template #header>
-              <i class="fa-solid fa-file   clickable-icon" @click="redirect('https://www.example.com')"></i>
+              <i class="fa-solid fa-file clickable-icon" @click="redirect('https://www.example.com')"></i>
             </template>
-            <b-card-text>
-              Texto do Card 2
-            </b-card-text>
+            <h1>Conta de Energia</h1>
+            <p>Libere até R$5.000,00 pelo débito na fatura de energia</p>
           </b-card>
         </b-col>
         <b-col md="4" class="card-container">
           <b-card class="custom-card">
             <template #header>
-              <i class="fa-solid fa-envelope clickable-icon" @click="redirect('https://www.example.com')"></i>
+              <i class="fa-solid fa-file clickable-icon" @click="redirect('https://www.example.com')"></i>
             </template>
-            <b-card-text>
-              Texto do Card 3
-            </b-card-text>
+            <h1>Conta de Energia</h1>
+            <p>Libere até R$5.000,00 pelo débito na fatura de energia</p>
+          </b-card>
+        </b-col>
+        <b-col md="4" class="card-container">
+          <b-card class="custom-card">
+            <template #header>
+              <i class="fa-solid fa-file clickable-icon" @click="redirect('https://www.example.com')"></i>
+            </template>
+            <h1>Conta de Energia</h1>
+            <p>Libere até R$5.000,00 pelo débito na fatura de energia</p>
           </b-card>
         </b-col>
       </b-row>
     </b-container>
+    </div>
+    <!-- Section with Gradient Background and Text -->
+    
   </div>
 </template>
 
@@ -75,43 +83,57 @@ const redirect = (url) => {
 </script>
 
 <style scoped>
+.Main-Section{
+  height: 90vh;
+  margin-top: 65px;
+}
 /* Navbar styles */
 .logo{
-  height: 20%;
-  width: 20%;
+  height: 5%;
+  width: 5%;
+  border-radius: 50%; /* Define o raio como 50% da largura/altura da imagem */
 }
+
 .ml-2 {
   margin-left: 10px;
 }
+.cards-section h1{
+  font-size: 1rem;
+}
 .navbar{
-  padding: 0px 8rem;
+  padding: 15px 35% 15px 10%;
 }
 .b-navbar {
   padding: 20px; /* Espaçamento interno */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
-
-.ml-2 {
-  margin-left: 10px;
+.col-md-4 {
+  flex: 0 0 auto;
+  width: 23%;
 }
-
 /* Hero Section */
 .hero-section {
   position: relative;
   text-align: center;
   color: white;
+  height: 500px;
+  background: linear-gradient(135deg, #add8e6, #00008b);
 }
-
-.hero-image {
-  width: 100%;
-  height: auto;
+.hero-img img{
+  height: 15%;
+  margin-top: 8%;
+  margin-right: 65%;
+  width: 20%;
+  border-radius: 100%;
 }
-
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.hero-text h1 {
+    position: absolute;
+    top: 50%;
+    text-align: left;
+    left: 18%;
+    font-size: 4rem;
+    margin-left: 36%;
+    transform: translate(-50%, -50%);
 }
 
 /* Cards Section */
@@ -129,8 +151,7 @@ const redirect = (url) => {
 }
 
 .clickable-icon {
-  font-size: 2rem;
+  font-size: 5rem;
   cursor: pointer;
 }
-
 </style>
