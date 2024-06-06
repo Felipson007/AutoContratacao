@@ -6,5 +6,9 @@
     "bootstrap-vue": "^2.23.1",
     "bootstrap-vue-3": "^0.3.12",
     "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-typescript": "^5.0.8",
+    "typescript": "^5.4.5"
   }
 }
