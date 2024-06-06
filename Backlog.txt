@@ -1,0 +1,5 @@
+TODO:
+	Fazer caurossel (Ajustar né ta uma porra isso)
+	Colocar imagem no começo mais humanizada
+	Ajustar resolução no celular e em tablets
+	Ajustar textos e imagens
