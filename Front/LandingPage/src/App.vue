@@ -45,21 +45,21 @@
       </b-container>
       
       <!-- About Section -->
-      <b-container class="mt-5 mb-6 about-section" v-for="about in abouts" :key="about.title">
+      <b-container class="mt-5 mb-6 about-section" v-for="aboutus in abouts" :key="aboutus.title">
         <b-row>
           <div class="tittle-about">
-            <h3>{{ about.title }}</h3>
+            <h3>{{ aboutus.title }}</h3>
           </div>
           <b-col md="5 img-about">
             <img src="@/assets/Logo.jpg" alt="Imagem da seção" class="img-fluid">
           </b-col>
           <b-col md="6" class="text-about">
-            <p>{{ about.text1 }}</p>
-            <p>{{ about.text2 }}</p>
-            <p class="text-font">{{ about.text3 }}</p>
-            <p class="text-font">{{ about.text4 }}</p>
+            <p>{{ aboutus.text1 }}</p>
+            <p>{{ aboutus.text2 }}</p>
+            <p class="text-font">{{ aboutus.text3 }}</p>
+            <p class="text-font">{{ aboutus.text4 }}</p>
             <a href="#" class="btn btn-primary btn1" role="button">
-              <i class="fa-brands fa-whatsapp"></i> Fale com a Gente sobre Empréstimo Consignado
+              <i class="fa-brands fa-whatsapp"></i> Fale com a Gente sobre Empréstimo
               <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i>
             </a>
           </b-col>
@@ -69,6 +69,7 @@
      <div class="container text-center my-5 ">
         <div>
           <h1>FAQ</h1>
+          <p>Perguntas Frequentes</p>
         </div>
         <div class="row justify-content-center faq-container">
           <div class="col-md-8">
@@ -91,7 +92,46 @@
           </div>
         </div>
       </div>
-      
+      <!--About us-->
+      <b-container class="mt-5 mb-6 about-section" v-for="aboutus in abouts2" :key="aboutus.title">
+        <b-row>
+          <div class="tittle-about">
+          
+          </div>
+          <b-col md="6" class="text-about">
+            <h3>{{ aboutus.title }}</h3>
+            <h4>{{ aboutus.subtitle }}</h4>
+            <div class="text-aboutus">
+              <p>{{ aboutus.text1 }}</p>
+              <p>{{ aboutus.text2 }}</p>
+              <p>{{ aboutus.text3 }}</p>
+            </div>
+
+            
+          </b-col>
+        <!-- Carrossel de imagens -->
+        <b-col md="12">
+            <b-carousel
+              v-model="activeIndex"
+              :interval="5000"
+              controls
+              indicators
+              no-controls
+              style="max-height: 400px;"
+            >
+              <b-carousel-slide v-for="(image, index) in aboutus.images" :key="index" :img-src="image"></b-carousel-slide>
+            </b-carousel>
+          </b-col>
+        </b-row>
+        <div class="btn2">
+          <a href="#" class="btn btn-primary" role="button">
+            <i class="fa-brands fa-whatsapp"></i> Fale com a Gente sobre Empréstimos
+            <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i>
+          </a>
+        </div>
+  
+      </b-container>
+
       <!-- Footer -->
       <footer class="footer">
         <div class="container">
@@ -107,6 +147,14 @@
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Serviços</a></li>
                 <li><a href="#">Contato</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>Fale Conosco</h4>
+              <ul class="list-unstyled">
+                <li><a href="#"><i class="fab fa-facebook"></i> (15) 99124-8993</a></li>
+                <li><a href="#"><i class="fab fa-whatsapp"></i> (15) 99124-8993</a></li>
+                <li><a href="#"><i class="fa-regular fa-envelope"></i> felipe.s.souza@outlook.com.br</a></li>
               </ul>
             </div>
             <div class="col-md-4">
@@ -130,7 +178,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse, BCardGroup } from 'bootstrap-vue-3';
+import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse, BCarousel, BCarouselSlide  } from 'bootstrap-vue-3';
 
 const cards = ref([
   {
@@ -166,16 +214,18 @@ const abouts = ref([
     text2: 'Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.',
     text3: 'Precisa daquela força no orçamento e tem saldo parado no FGTS?',
     text4: 'Saiba mais! Consulte nossas especialistas.'
-  },
-  {
-    title: 'Antecipação FGTS',
-    text1: 'O crédito consignado tem sido uma alternativa inteligente para todos que tem acesso e precisam de dinheiro rápido e com excelentes taxas. Essse crédito está disponível para: aposentados e pensionistas INSS, servidores públicos ativos e inativos (federais, estaduais e municipais).',
-    text2: 'Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.',
-    text3: 'Precisa daquela força no orçamento e tem saldo parado no FGTS?',
-    text4: 'Saiba mais! Consulte nossas especialistas.'
   }
 ]);
-
+const abouts2 = ref([
+  {
+    title: 'Sobre Nós',
+    subtitle: 'Conheça a Credito Completo',
+    text1: 'Com mais de 10 anos no mercado de crédito, a CrediConfiance tem conquistado cada vez mais espaço no mercado nacional. Inicialmente operando no interior de São Paulo com 4 agências focadas em atendimento presencial, iniciou em 2020 sua expansão digital utilizando sua expertise para atender clientes em todo o Brasil.',
+    text2: 'Com princípios éticos inegociáveis, a CrediConfiance tem como maior prêmio o reconhecimento de seus cliente e se orgulha por ser lembrada nos orgãos fiscalizadores como uma empresa séria e amiga do cliente.',
+    text3: 'Essa é a CrediConfiance, um empresa feita de gente que trabalha para para promover crédito de forma justa, rápida e descomplicada.',
+    images: ['@/assets/Logo.jpg', '@/assets/Logo.jpg', '@/assets/Logo.jpg'] 
+  }
+]);
 const questions = ref([
   {
     title: 'O que é o crédito consignado?',
@@ -192,7 +242,7 @@ const questions = ref([
 ]);
 
 const show = ref(questions.value.map(() => false));
-
+let activeIndex = ref(0);
 const toggle = (index: number) => {
   show.value[index] = !show.value[index];
 };
@@ -339,6 +389,17 @@ const redirect = (link: string) => {
 .faq-header{
   padding: 10px;
   align-items: center;
+}
+/* About Us */
+.text-aboutus{
+  text-align: center;
+  font-size: 1rem;
+}
+.btn2{
+  display: flex;
+  margin-top: 3rem;
+  align-items: center;
+  justify-content: space-around;
 }
 /* Footer */
 .footer {
