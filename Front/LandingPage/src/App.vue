@@ -1,6 +1,7 @@
 <template>
   <div>
     <header>
+
       <!-- Navbar -->
       <b-navbar variant="light" type="light" fixed="top">
         <b-container class="d-flex justify-content-between align-items-center">
@@ -8,7 +9,6 @@
             <img src="@/assets/Logo.jpg" alt="Logo da Empresa" class="d-inline-block align-top logo" />
             <span class="ml-2">Nome da Empresa</span>
           </b-navbar-brand>
-
           <b-navbar-nav class="ml-auto">
             <b-nav-item to="#">Home</b-nav-item>
             <b-nav-item to="#">Sobre</b-nav-item>
@@ -65,6 +65,7 @@
           </b-col>
         </b-row>
       </b-container>
+
      <!-- FAQ Section -->
      <div class="container text-center my-5 ">
         <div>
@@ -92,11 +93,11 @@
           </div>
         </div>
       </div>
+
       <!--About us-->
       <b-container class="mt-5 mb-6 about-section" v-for="aboutus in abouts2" :key="aboutus.title">
         <b-row>
           <div class="tittle-about">
-          
           </div>
           <b-col md="6" class="text-about">
             <h3>{{ aboutus.title }}</h3>
@@ -106,9 +107,8 @@
               <p>{{ aboutus.text2 }}</p>
               <p>{{ aboutus.text3 }}</p>
             </div>
-
-            
           </b-col>
+
         <!-- Carrossel de imagens -->
         <b-col md="12">
             <b-carousel
@@ -129,7 +129,6 @@
             <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i>
           </a>
         </div>
-  
       </b-container>
 
       <!-- Footer -->
