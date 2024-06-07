@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <header>
-
+  <div class="page">
+    <header >
+      <div class="header">
       <!-- Navbar -->
       <b-navbar variant="light" type="light" fixed="top">
         <b-container class="d-flex justify-content-between align-items-center">
@@ -9,13 +9,17 @@
             <img src="@/assets/Logo.jpg" alt="Logo da Empresa" class="d-inline-block align-top logo" />
             <span class="ml-2">Nome da Empresa</span>
           </b-navbar-brand>
-          <b-navbar-nav class="ml-auto">
+          <div class="navbar-respons" v-if="!isMobileMode">
+            <b-navbar-nav class="ml-auto">
             <b-nav-item to="#">Home</b-nav-item>
             <b-nav-item to="#">Sobre</b-nav-item>
             <b-nav-item to="#">Contato</b-nav-item>
           </b-navbar-nav>
+          </div>
+
         </b-container>
       </b-navbar>
+      </div>
     </header>
     
     <!-- Main Section -->
@@ -133,9 +137,8 @@
       <footer class="footer">
         <div class="container">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" v-if="!isMobileMode">
               <img src="@/assets/Logo.jpg" alt="Logo" class="logo">
-              <p></p>
             </div>
             <div class="col-md-4">
               <h4>Links Úteis</h4>
@@ -174,7 +177,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue';
+import { ref, watchEffect, onMounted } from 'vue';
 import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse, BCarousel, BCarouselSlide  } from 'bootstrap-vue-3';
 import Logo from '@/assets/Logo.jpg';
 import emprestimo1 from '@/assets/emprestimo1.jpg'
@@ -265,10 +268,26 @@ watchEffect(() => {
 
   return () => clearInterval(interval);
 });
+const isMobileMode = ref(false);
+
+onMounted(() => {
+  // Verifica o tamanho da tela ao montar o componente
+  checkScreenSize();
+  // Adiciona um listener para verificar quando o tamanho da tela mudar
+  window.addEventListener('resize', checkScreenSize);
+});
+
+const checkScreenSize = () => {
+  // Verifica se a largura da tela é menor ou igual a 768 pixels (considerando como modo celular)
+  isMobileMode.value = window.innerWidth <= 768;
+};
 </script>
 
 
 <style scoped>
+.page{
+  overflow-x: hidden;
+}
 .Main-Section {
   margin-top: 58px;
 }
@@ -341,6 +360,7 @@ watchEffect(() => {
 /* About Section */
 .about-section {
   margin-bottom: 5rem;
+  margin-left: 110px;
 }
 .btn1 {
   background-color: green;
@@ -428,6 +448,7 @@ watchEffect(() => {
 
 .carousel-slide {
   display: flex;
+  justify-content: center;
 }
 
 .carousel-slide img {
@@ -515,7 +536,7 @@ watchEffect(() => {
 }
 .footer .copyright {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 .footer .copyright p {
   font-size: 14px;
