@@ -110,18 +110,16 @@
           </b-col>
 
         <!-- Carrossel de imagens -->
-        <b-col md="12">
-            <b-carousel
-              v-model="activeIndex"
-              :interval="5000"
-              controls
-              indicators
-              no-controls
-              style="max-height: 400px;"
-            >
-              <b-carousel-slide v-for="(image, index) in aboutus.images" :key="index" :img-src="image"></b-carousel-slide>
-            </b-carousel>
-          </b-col>
+        <b-col md="5">
+          <div class="carousel-container">
+            <div class="carousel-slide">
+              <img v-for="(image, index) in images" :key="index" :src="image" :class="{ 'active': index === currentIndex }" alt="Slide">
+            </div>
+            <div class="carousel-indicators">
+              <div v-for="(image, index) in images" :key="index" class="carousel-indicator" :class="{ 'active': index === currentIndex }" @click="changeSlide(index)"></div>
+            </div>
+          </div>
+        </b-col>
         </b-row>
         <div class="btn2">
           <a href="#" class="btn btn-primary" role="button">
@@ -176,9 +174,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse, BCarousel, BCarouselSlide  } from 'bootstrap-vue-3';
-
+import Logo from '@/assets/Logo.jpg';
+import emprestimo1 from '@/assets/emprestimo1.jpg'
+import emprestimo2 from '@/assets/emprestimo2.jpg'
 const cards = ref([
   {
     title: 'Antecipação FGTS',
@@ -222,7 +222,7 @@ const abouts2 = ref([
     text1: 'Com mais de 10 anos no mercado de crédito, a CrediConfiance tem conquistado cada vez mais espaço no mercado nacional. Inicialmente operando no interior de São Paulo com 4 agências focadas em atendimento presencial, iniciou em 2020 sua expansão digital utilizando sua expertise para atender clientes em todo o Brasil.',
     text2: 'Com princípios éticos inegociáveis, a CrediConfiance tem como maior prêmio o reconhecimento de seus cliente e se orgulha por ser lembrada nos orgãos fiscalizadores como uma empresa séria e amiga do cliente.',
     text3: 'Essa é a CrediConfiance, um empresa feita de gente que trabalha para para promover crédito de forma justa, rápida e descomplicada.',
-    images: ['@/assets/Logo.jpg', '@/assets/Logo.jpg', '@/assets/Logo.jpg'] 
+
   }
 ]);
 const questions = ref([
@@ -241,7 +241,6 @@ const questions = ref([
 ]);
 
 const show = ref(questions.value.map(() => false));
-let activeIndex = ref(0);
 const toggle = (index: number) => {
   show.value[index] = !show.value[index];
 };
@@ -249,7 +248,25 @@ const toggle = (index: number) => {
 const redirect = (link: string) => {
   window.location.href = link;
 };
+// Adicionando a lista de imagens para o carrossel
+const images = ref([Logo, emprestimo1, emprestimo2]);
+
+// Variável para controlar o índice da imagem atual no carrossel
+const currentIndex = ref(0);
+
+// Método para mudar a imagem do carrossel
+const changeSlide = (index: number) => {
+  currentIndex.value = index;
+};
+watchEffect(() => {
+  const interval = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % images.value.length;
+  }, 5000); // Mudança a cada 5 segundos
+
+  return () => clearInterval(interval);
+});
 </script>
+
 
 <style scoped>
 .Main-Section {
@@ -399,6 +416,57 @@ const redirect = (link: string) => {
   margin-top: 3rem;
   align-items: center;
   justify-content: space-around;
+}
+/* Caurossel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Altere conforme necessário */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+}
+
+.carousel-slide img {
+  width: 90%;
+  height: auto;
+  display: none;
+  border-radius: 20%;
+}
+
+.carousel-slide img.active {
+  display: block;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 35%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: gray;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicator.active {
+  background-color: black;
+}
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.5s ease; /* Efeito de transição suave */
+}
+
+.slide-enter, .slide-leave-to {
+  transform: translateX(100%);
 }
 /* Footer */
 .footer {
