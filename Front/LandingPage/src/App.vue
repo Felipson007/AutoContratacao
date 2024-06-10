@@ -5,15 +5,16 @@
       <!-- Navbar -->
       <b-navbar variant="light" type="light" fixed="top">
         <b-container class="d-flex justify-content-between align-items-center">
-          <b-navbar-brand class="d-flex align-items-center">
-            <img src="@/assets/Logo.jpg" alt="Logo da Empresa" class="d-inline-block align-top logo" />
-            <span class="ml-2">Nome da Empresa</span>
+          <b-navbar-brand class="d-flex align-items-center" href="#home">
+            <img src="@/assets/Logo.jpg" alt="Logo da Empresa" class="d-inline-block align-top logo"  />
+            <span class="ml-2">Crédito Completo</span>
           </b-navbar-brand>
           <div class="navbar-respons" v-if="!isMobileMode">
             <b-navbar-nav class="ml-auto">
-            <b-nav-item to="#">Home</b-nav-item>
-            <b-nav-item to="#">Sobre</b-nav-item>
-            <b-nav-item to="#">Contato</b-nav-item>
+            <b-nav-item href="#home">Home</b-nav-item>
+            <b-nav-item href="#about">Sobre</b-nav-item>
+            <b-nav-item href="#aboutus">Nós</b-nav-item>
+            <b-nav-item href="#contact">Contato</b-nav-item>
           </b-navbar-nav>
           </div>
 
@@ -23,10 +24,10 @@
     </header>
     
     <!-- Main Section -->
-    <div class="Main-Section">
+    <div class="Main-Section"  id="home">
       <section class="hero-section">
         <div class="hero-img">
-          <img src="@/assets/Logo.jpg" alt="Logo da Empresa" />
+          <img src="@/assets/IncialImage.jpg" alt="Logo da Empresa" />
         </div>
         <div class="hero-text">
           <h1>Crédito inteligente para cada necessidade.</h1>
@@ -34,7 +35,7 @@
       </section>
       
       <!-- Cards Section -->
-      <b-container class="cards-section">
+      <b-container class="cards-section"v-if="!isMobileMode">
         <b-row class="justify-content-center">
           <b-col md="4" class="card-container" v-for="card in cards" :key="card.title">
             <b-card class="custom-card">
@@ -47,22 +48,37 @@
           </b-col>
         </b-row>
       </b-container>
+
+            <!-- Cards Section -->
+        <b-container class="cards-section" v-else>
+   
+          <b-col md="4" class="card-container" v-for="card in cards" :key="card.title">
+            <b-card class="custom-card">
+              <div class="icon-header">
+                <i :class="card.icon + ' clickable-icon'" @click="redirect(card.link)"></i>
+              </div>
+              <h1>{{ card.title }}</h1>
+              <p>{{ card.description }}</p>
+            </b-card>
+          </b-col>
+       
+      </b-container >
       
       <!-- About Section -->
-      <b-container class="mt-5 mb-6 about-section" v-for="aboutus in abouts" :key="aboutus.title">
+      <b-container class="mt-5 mb-6 about-section" v-for="aboutus in abouts" :key="aboutus.title" >
         <b-row>
-          <div class="tittle-about">
+          <div class="tittle-about" id="about">
             <h3>{{ aboutus.title }}</h3>
           </div>
           <b-col md="5 img-about">
-            <img src="@/assets/Logo.jpg" alt="Imagem da seção" class="img-fluid">
+            <img :src="aboutus.image" alt="Imagem da seção" class="img-fluid">
           </b-col>
           <b-col md="6" class="text-about">
             <p>{{ aboutus.text1 }}</p>
             <p>{{ aboutus.text2 }}</p>
             <p class="text-font">{{ aboutus.text3 }}</p>
             <p class="text-font">{{ aboutus.text4 }}</p>
-            <a href="#" class="btn btn-primary btn1" role="button">
+            <a href="https://api.whatsapp.com/send?phone=5515988200549&text=Ol%C3%A1,%20vim%20pelo%20site%20e%20preciso%20de%20ajuda!!" class="btn btn-primary btn1" role="button">
               <i class="fa-brands fa-whatsapp"></i> Fale com a Gente sobre Empréstimo
               <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i>
             </a>
@@ -99,7 +115,7 @@
       </div>
 
       <!--About us-->
-      <b-container class="mt-5 mb-6 about-section" v-for="aboutus in abouts2" :key="aboutus.title">
+      <b-container class="mt-5 mb-6 about-section" v-for="aboutus in abouts2" :key="aboutus.title" id="aboutus">
         <b-row>
           <div class="tittle-about">
           </div>
@@ -126,7 +142,7 @@
         </b-col>
         </b-row>
         <div class="btn2">
-          <a href="#" class="btn btn-primary" role="button">
+          <a href="https://api.whatsapp.com/send?phone=5515988200549&text=Ol%C3%A1,%20vim%20pelo%20site%20e%20preciso%20de%20ajuda!!" class="btn btn-primary" role="button">
             <i class="fa-brands fa-whatsapp"></i> Fale com a Gente sobre Empréstimos
             <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i>
           </a>
@@ -149,11 +165,11 @@
                 <li><a href="#">Contato</a></li>
               </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="contact">
               <h4>Fale Conosco</h4>
               <ul class="list-unstyled">
-                <li><a href="#"><i class="fab fa-facebook"></i> (15) 99124-8993</a></li>
-                <li><a href="#"><i class="fab fa-whatsapp"></i> (15) 99124-8993</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=5515988200549&text=Ol%C3%A1,%20vim%20pelo%20site%20e%20preciso%20de%20ajuda!!"><i class="fa-solid fa-phone"></i> (15) 98820-0549</a></li>
+                <li><a href="#"><i class="fab fa-whatsapp"></i> (15) 3342-7141</a></li>
                 <li><a href="#"><i class="fa-regular fa-envelope"></i> felipe.s.souza@outlook.com.br</a></li>
               </ul>
             </div>
@@ -180,8 +196,12 @@
 import { ref, watchEffect, onMounted } from 'vue';
 import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse, BCarousel, BCarouselSlide  } from 'bootstrap-vue-3';
 import Logo from '@/assets/Logo.jpg';
-import emprestimo1 from '@/assets/emprestimo1.jpg'
-import emprestimo2 from '@/assets/emprestimo2.jpg'
+import emprestimo1 from '@/assets/emprestimo1.jpg';
+import emprestimo2 from '@/assets/emprestimo2.jpg';
+import FGTS from '@/assets/FGTS.jpg';
+import Energia from '@/assets/Energia.jpg';
+import refin1 from '@/assets/refin1.png';
+import refin2 from '@/assets/refin2.jpg';
 const cards = ref([
   {
     title: 'Antecipação FGTS',
@@ -191,20 +211,20 @@ const cards = ref([
   },
   {
     title: 'Conta de Energia',
-    description: 'Libere até R$5.000,00 pelo débito na fatura de energia',
-    icon: 'fa-solid fa-file',
+    description: 'Obtenha crédito com garantia da sua conta de luz.',
+    icon: 'fa-solid fa-file-contract',
     link: 'https://www.example.com'
   },
   {
-    title: 'Conta de Energia',
-    description: 'Libere até R$5.000,00 pelo débito na fatura de energia',
-    icon: 'fa-solid fa-file',
+    title: 'Refin de veiculos',
+    description: 'Troque seu financiamento atual por um novo com taxas menores.',
+    icon: 'fa-solid fa-car',
     link: 'https://www.example.com'
   },
   {
-    title: 'Conta de Energia',
-    description: 'Libere até R$5.000,00 pelo débito na fatura de energia',
-    icon: 'fa-solid fa-file',
+    title: 'Refin de Caminhões',
+    description: 'Reduza as taxas de juros e as parcelas do seu caminhão.',
+    icon: 'fa-solid fa-truck',
     link: 'https://www.example.com'
   }
 ]);
@@ -212,11 +232,37 @@ const cards = ref([
 const abouts = ref([
   {
     title: 'Antecipação FGTS',
-    text1: 'O crédito consignado tem sido uma alternativa inteligente para todos que tem acesso e precisam de dinheiro rápido e com excelentes taxas. Essse crédito está disponível para: aposentados e pensionistas INSS, servidores públicos ativos e inativos (federais, estaduais e municipais).',
-    text2: 'Com aprovação rápida e sem burocracias, este crédito tem sido a melhor escolha para realização de sonhos e garantia de fluxo financeiro para milhares de famílias.',
+    text1: 'O Credito Completo FGTS é a solução inteligente para quem busca liberar o saldo do FGTS de forma rápida, fácil e sem complicação.',
+    text2: 'Com aprovação rápida e sem burocracia, você garante dinheiro na mão em poucas horas e realiza seus sonhos sem precisar esperar.',
     text3: 'Precisa daquela força no orçamento e tem saldo parado no FGTS?',
-    text4: 'Saiba mais! Consulte nossas especialistas.'
+    text4: 'Saiba mais! Consulte nossas especialistas.',
+    image: FGTS,
+  },
+  {
+    title: 'Credito Na Conta de Luz',
+    text1: 'O Credito Completo Conta de Luz é a solução rápida e prática para você que precisa de dinheiro na mão.',
+    text2: 'Com aprovação rápida e sem burocracia, você recebe o dinheiro em sua conta em poucas horas e as parcelas são debitadas automaticamente na sua conta de luz.',
+    text3: 'Precisa de um gás no orçamento? Consulte nossas especialistas e saiba como o Credito Completo Conta de Luz pode te ajudar!',
+    text4: 'Realize seus sonhos agora mesmo com o Credito Completo Conta de Luz!',
+    image: Energia,
+  },
+  {
+    title: 'Refinanciamento de Veículos',
+    text1: 'O Refinanciamento de Veículos Credito Completo é a solução ideal para quem busca reduzir as taxas de juros e as parcelas do financiamento do seu carro.',
+    text2: 'Com nosso refinanciamento, você libera mais dinheiro do valor do seu veículo e pode utilizá-lo para quitar dívidas, realizar novos sonhos ou o que você precisar.',
+    text3: 'Está precisando de um gás no orçamento? Consulte nossas especialistas e saiba como o Refinanciamento de Veículos Credito Completo pode te ajudar!',
+    text4: 'Refinancie seu veículo agora mesmo e tenha mais tranquilidade financeira!',
+    image: refin1,
+  },
+  {
+    title: 'Refinanciamento de Caminhões',
+    text1: 'O Refinanciamento de Caminhões Credito Completo é a solução ideal para transportadores que buscam reduzir as taxas de juros e as parcelas do financiamento do seu caminhão.',
+    text2: 'Com nosso refinanciamento, você libera mais dinheiro do valor do seu caminhão e pode utilizá-lo para investir no seu negócio, comprar novos equipamentos, ampliar sua frota ou o que você precisar para aumentar sua lucratividade.',
+    text3: 'Está precisando de um fôlego novo para o seu negócio? Consulte nossas especialistas e saiba como o Refinanciamento de Caminhões Credito Completo pode te ajudar!',
+    text4: 'Refinancie seu caminhão agora mesmo e tenha mais força para conquistar seus objetivos!',
+    image: refin2,
   }
+
 ]);
 const abouts2 = ref([
   {
@@ -230,17 +276,30 @@ const abouts2 = ref([
 ]);
 const questions = ref([
   {
-    title: 'O que é o crédito consignado?',
-    answer: 'O crédito consignado é uma modalidade de empréstimo onde as parcelas são descontadas diretamente da folha de pagamento do contratante, proporcionando taxas de juros mais baixas e maior facilidade na aprovação.'
+    title: 'O que é o Empréstimo FGTS Credito Completo?',
+    answer: 'A antecipação do FGTS permite que o trabalhador antecipe parte do saldo disponível em sua conta do FGTS, recebendo o valor antecipado de forma imediata, com o pagamento sendo descontado diretamente das parcelas futuras do FGTS.'
   },
   {
-    title: 'Quem pode solicitar o crédito consignado?',
-    answer: 'Aposentados e pensionistas do INSS, servidores públicos, militares das Forças Armadas e, em alguns casos, trabalhadores de empresas privadas conveniadas.'
+    title: 'Quem pode solicitar o Empréstimo FGTS Credito Completo?',
+    answer: 'Trabalhadores com carteira assinada que possuem saldo no FGTS podem solicitar o empréstimo.'
   },
   {
     title: 'Como funciona a antecipação do FGTS?',
     answer: 'A antecipação do FGTS permite que o trabalhador antecipe parte do saldo disponível em sua conta do FGTS, recebendo o valor antecipado de forma imediata, com o pagamento sendo descontado diretamente das parcelas futuras do FGTS.'
-  }
+  },
+  {
+    title: 'O que é o Refinanciamento de Veículos Credito Completo?',
+    answer: 'É a troca do seu financiamento atual por um novo, com taxas de juros menores, prazos maiores e a possibilidade de liberar dinheiro extra.'
+  },
+  {
+    title: 'O que é o Empréstimo Conta de Luz Credito Completo?',
+    answer: 'É uma linha de crédito com garantia da sua conta de luz, oferecendo taxas de juros baixas, prazos flexíveis e liberação rápida do dinheiro.'
+  },
+  {
+    title: 'Quem pode solicitar o Empréstimo Conta de Luz Credito Completo?',
+    answer: 'Titulares de contas de luz residenciais podem solicitar o empréstimo.'
+  },
+  
 ]);
 
 const show = ref(questions.value.map(() => false));
@@ -289,12 +348,12 @@ const checkScreenSize = () => {
   overflow-x: hidden;
 }
 .Main-Section {
-  margin-top: 58px;
+  margin-top: 65px;
 }
 /* Navbar styles */
 .logo {
-  height: 5%;
-  width: 5%;
+  height: 10%;
+  width: 10%;
   border-radius: 50%; /* Define o raio como 50% da largura/altura da imagem */
 }
 .ml-2 {
@@ -313,6 +372,30 @@ const checkScreenSize = () => {
 .col-md-4 {
   flex: 0 0 auto;
   width: 23%;
+}
+@media only screen and (max-width: 900px) {
+  .col-md-4 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+.hero-img img{
+    margin-top: 38% !important;
+    margin-right: 46% !important;
+    width: 37% !important;
+}
+.hero-text h1{
+    position: absolute;
+    top: 44% !important;
+    text-align: right;
+    left: 76% !important;
+    font-size: 2rem !important;
+    transform: translate(-50%, -50%);
+}
+.logo {
+    height: 28%;
+    width: 36%;
+    border-radius: 50%;
+}
 }
 /* Hero Section */
 .hero-section {
@@ -360,7 +443,7 @@ const checkScreenSize = () => {
 /* About Section */
 .about-section {
   margin-bottom: 5rem;
-  margin-left: 110px;
+
 }
 .btn1 {
   background-color: green;
@@ -385,7 +468,7 @@ const checkScreenSize = () => {
 }
 .text-about {
   padding-top: 20px;
-  text-align: justify;
+  text-align: center;
   align-items: center;
   display: flex;
   font-size: 1.2rem;
