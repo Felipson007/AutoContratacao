@@ -27,7 +27,7 @@
     <div class="Main-Section"  id="home">
       <section class="hero-section">
         <div class="hero-img">
-          <img src="@/assets/IncialImage.jpg" alt="Logo da Empresa" />
+          <img src="@/assets/IncialImage2.png" alt="Logo da Empresa" />
         </div>
         <div class="hero-text">
           <h1>Crédito inteligente para cada necessidade.</h1>
@@ -194,7 +194,7 @@
 
 <script setup lang="ts">
 import { ref, watchEffect, onMounted } from 'vue';
-import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse, BCarousel, BCarouselSlide  } from 'bootstrap-vue-3';
+import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse  } from 'bootstrap-vue-3'
 import Logo from '@/assets/Logo.jpg';
 import emprestimo1 from '@/assets/emprestimo1.jpg';
 import emprestimo2 from '@/assets/emprestimo2.jpg';
@@ -231,19 +231,19 @@ const cards = ref([
 
 const abouts = ref([
   {
-    title: 'Antecipação FGTS',
-    text1: 'O Credito Completo FGTS é a solução inteligente para quem busca liberar o saldo do FGTS de forma rápida, fácil e sem complicação.',
-    text2: 'Com aprovação rápida e sem burocracia, você garante dinheiro na mão em poucas horas e realiza seus sonhos sem precisar esperar.',
-    text3: 'Precisa daquela força no orçamento e tem saldo parado no FGTS?',
-    text4: 'Saiba mais! Consulte nossas especialistas.',
+    title: "Antecipação FGTS",
+    text1: "O Credito Completo FGTS é a solução inteligente para quem busca um empréstimo FGTS de forma rápida, fácil e sem complicação.",
+    text2: "Com aprovação rápida e sem burocracia, você garante dinheiro na mão em poucas horas e realiza seus sonhos sem precisar esperar.",
+    text3: "Precisa daquela força no orçamento e quer sacar FGTS? Consulte nossos especialistas no Credito Completo e descubra como consultar FGTS e liberar seu saldo sem complicações.",
+    text4: "Oferecemos opções como o saque aniversário FGTS, permitindo que você realize o saque do FGTS disponível no seu saldo de forma simples e sem burocracia.",
     image: FGTS,
   },
   {
-    title: 'Credito Na Conta de Luz',
-    text1: 'O Credito Completo Conta de Luz é a solução rápida e prática para você que precisa de dinheiro na mão.',
-    text2: 'Com aprovação rápida e sem burocracia, você recebe o dinheiro em sua conta em poucas horas e as parcelas são debitadas automaticamente na sua conta de luz.',
-    text3: 'Precisa de um gás no orçamento? Consulte nossas especialistas e saiba como o Credito Completo Conta de Luz pode te ajudar!',
-    text4: 'Realize seus sonhos agora mesmo com o Credito Completo Conta de Luz!',
+    title: "Empréstimo com Conta de Energia",
+    text1: "O Empréstimo com Conta de Energia oferece uma solução conveniente e acessível para quem precisa de uma ajuda financeira rápida. Com este serviço, você pode utilizar sua conta de energia elétrica como garantia para obter o dinheiro de que precisa.",
+    text2: "Aprovamos seu empréstimo rapidamente, sem burocracia. Em poucas horas, o dinheiro estará disponível na sua conta. E o melhor: as parcelas são descontadas diretamente da sua conta de luz, tornando o processo ainda mais prático e fácil de gerenciar.",
+    text3: "Precisando de uma folga no orçamento? Nossos especialistas estão à disposição para ajudá-lo a encontrar a melhor solução para suas necessidades. Oferecemos diferentes opções de empréstimo com conta de energia, adaptadas ao que você precisa.",
+    text4: "Não espere mais para realizar seus projetos. Com o Empréstimo com Conta de Energia, você tem acesso rápido ao dinheiro que precisa, com condições flexíveis e sem complicações. Consulte-nos hoje mesmo e descubra como podemos ajudá-lo!",
     image: Energia,
   },
   {
@@ -262,7 +262,6 @@ const abouts = ref([
     text4: 'Refinancie seu caminhão agora mesmo e tenha mais força para conquistar seus objetivos!',
     image: refin2,
   }
-
 ]);
 const abouts2 = ref([
   {
@@ -406,11 +405,11 @@ const checkScreenSize = () => {
   background: linear-gradient(135deg, #add8e6, #00008b);
 }
 .hero-img img {
-  height: 15%;
+  height: auto;
   margin-top: 2%;
-  margin-right: 35%;
-  width: 29%;
-  border-radius: 100%;
+  margin-right: 36%;
+  width: 20%;
+  border-radius: 5%;
 }
 .hero-text h1 {
   position: absolute;
