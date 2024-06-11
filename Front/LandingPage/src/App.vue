@@ -76,8 +76,13 @@
           <b-col md="6" class="text-about">
             <p>{{ aboutus.text1 }}</p>
             <p>{{ aboutus.text2 }}</p>
-            <p class="text-font">{{ aboutus.text3 }}</p>
-            <p class="text-font">{{ aboutus.text4 }}</p>
+            <p>{{ aboutus.text3 }}</p>
+            <p>{{ aboutus.text4 }}</p>
+            <p>{{ aboutus.text5 }}</p>
+            <p  class="text-font">{{ aboutus.text6 }}</p>
+            <p class="text-font">{{ aboutus.text7 }}</p>
+            <p class="text-font">{{ aboutus.text8 }}</p>
+            <p class="text-font">{{ aboutus.text9 }}</p>
             <a href="https://api.whatsapp.com/send?phone=5515988200549&text=Ol%C3%A1,%20vim%20pelo%20site%20e%20preciso%20de%20ajuda!!" class="btn btn-primary btn1" role="button">
               <i class="fa-brands fa-whatsapp"></i> Fale com a Gente sobre Empréstimo
               <i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i><i class="fa-solid fa-dollar-sign"></i>
@@ -131,13 +136,15 @@
 
         <!-- Carrossel de imagens -->
         <b-col md="5">
+          <div class="caption-text">
+              <p class="carousel-caption" v-text="carouselCaptions[currentIndex]"></p>
+          </div>
           <div class="carousel-container">
             <div class="carousel-slide">
               <img v-for="(image, index) in images" :key="index" :src="image" :class="{ 'active': index === currentIndex }" alt="Slide">
             </div>
-            <div class="carousel-indicators">
-              <div v-for="(image, index) in images" :key="index" class="carousel-indicator" :class="{ 'active': index === currentIndex }" @click="changeSlide(index)"></div>
-            </div>
+
+            
           </div>
         </b-col>
         </b-row>
@@ -202,6 +209,9 @@ import FGTS from '@/assets/FGTS.jpg';
 import Energia from '@/assets/Energia.jpg';
 import refin1 from '@/assets/refin1.png';
 import refin2 from '@/assets/refin2.jpg';
+import clientimg1 from '@/assets/clientimg1.png';
+import clientimg2 from '@/assets/clientimg2.png';
+import clientimg3 from '@/assets/clientimg3.png';
 const cards = ref([
   {
     title: 'Antecipação FGTS',
@@ -231,35 +241,47 @@ const cards = ref([
 
 const abouts = ref([
   {
-    title: "Antecipação FGTS",
-    text1: "O Credito Completo FGTS é a solução inteligente para quem busca um empréstimo FGTS de forma rápida, fácil e sem complicação.",
-    text2: "Com aprovação rápida e sem burocracia, você garante dinheiro na mão em poucas horas e realiza seus sonhos sem precisar esperar.",
-    text3: "Precisa daquela força no orçamento e quer sacar FGTS? Consulte nossos especialistas no Credito Completo e descubra como consultar FGTS e liberar seu saldo sem complicações.",
-    text4: "Oferecemos opções como o saque aniversário FGTS, permitindo que você realize o saque do FGTS disponível no seu saldo de forma simples e sem burocracia.",
+    title: 'Antecipação de Saque Aniversário FGTS',
+    text1: 'Antecipação de Saque aniversário FGTS é a solução inteligente para quem busca um empréstimo utilizando o saque aniversário antecipado do FGTS de forma rápida, fácil e sem complicação.',
+    text2: 'O Saque Aniversário Antecipado do FGTS é sem burocracia, você garante dinheiro na mão em poucas horas e realiza seus sonhos sem precisar esperar.',
+    text3: 'Precisa daquela força no orçamento e quer sacar seu FGTS? Consulte nossos especialistas e descubra como consultar o FGTS e liberar Saque Aniversário Antecipado do FGTS.',
+    text4: 'Com a Antecipação do Saque-Aniversário FGTS, você não compromete sua renda mensal.',
+    text5: 'Empréstimo FGTS é uma nova modalidade de empréstimo para pessoas quem possuem saldo no FGTS e que aderiram ao Saque-Aniversário.',
     image: FGTS,
   },
   {
-    title: "Empréstimo com Conta de Energia",
-    text1: "O Empréstimo com Conta de Energia oferece uma solução conveniente e acessível para quem precisa de uma ajuda financeira rápida. Com este serviço, você pode utilizar sua conta de energia elétrica como garantia para obter o dinheiro de que precisa.",
-    text2: "Aprovamos seu empréstimo rapidamente, sem burocracia. Em poucas horas, o dinheiro estará disponível na sua conta. E o melhor: as parcelas são descontadas diretamente da sua conta de luz, tornando o processo ainda mais prático e fácil de gerenciar.",
-    text3: "Precisando de uma folga no orçamento? Nossos especialistas estão à disposição para ajudá-lo a encontrar a melhor solução para suas necessidades. Oferecemos diferentes opções de empréstimo com conta de energia, adaptadas ao que você precisa.",
-    text4: "Não espere mais para realizar seus projetos. Com o Empréstimo com Conta de Energia, você tem acesso rápido ao dinheiro que precisa, com condições flexíveis e sem complicações. Consulte-nos hoje mesmo e descubra como podemos ajudá-lo!",
-    image: Energia,
+    title: "Crédito na Conta de Energia",
+    text1: "O empréstimo na Conta de Energia é a solução rápida e prática para você que precisa de dinheiro na mão. Nosso serviço de empréstimo conta de luz oferece conveniência e facilidade.",
+    text2: "Com este serviço a parcela do seu empréstimo virá na sua conta de energia elétrica.",
+    text3: "Com aprovação rápida e sem burocracia, você recebe o dinheiro em sua conta em poucas horas. As parcelas virão junto na sua conta de luz, consulte as concessionárias autorizadas.",
+    text4: "Precisa de um gás no orçamento? Consulte nossos especialistas e saiba como Empréstimo Pessoal com parcelamento na Fatura de Energia pode te ajudar! Oferecemos modalidades de crédito adaptadas às suas necessidades, mesmo para quem não tem comprovante de renda ou formas de parcelamento convencionais.",
+    text5: "Por que contratar o Crédito com Parcelamento na Fatura de Energia?",
+    text6: "Essa modalidade de crédito é perfeita pra quem precisa de dinheiro com urgência e não tem comprovante de renda ou formas de parcelamento.",
+    text7: "A partir de R$ 400 a R$ 2.200.",
+    text8: "Em até 22X.",
+    text9: "Pagamento em até 24 horas após a aprovação.",
+    image: Energia
   },
   {
     title: 'Refinanciamento de Veículos',
-    text1: 'O Refinanciamento de Veículos Credito Completo é a solução ideal para quem busca reduzir as taxas de juros e as parcelas do financiamento do seu carro.',
-    text2: 'Com nosso refinanciamento, você libera mais dinheiro do valor do seu veículo e pode utilizá-lo para quitar dívidas, realizar novos sonhos ou o que você precisar.',
-    text3: 'Está precisando de um gás no orçamento? Consulte nossas especialistas e saiba como o Refinanciamento de Veículos Credito Completo pode te ajudar!',
+    text1: 'O Refinanciamento de Veículos é a solução ideal para quem busca reduzir as taxas de juros e as parcelas do financiamento do seu carro.',
+    text2: 'Com o nosso Refinanciamento de Veículos você libera mais dinheiro do valor do seu veículo e pode utilizá-lo para quitar dívidas, realizar novos sonhos ou o que você precisar. O refinanciamento de veículos é uma modalidade de crédito na qual é necessário deixar um automóvel como garantia de pagamento do empréstimo. Refinanciar um veículo também é sinônimo de empréstimo com garantia de veículo.',
+    text3: 'Está precisando de um gás no orçamento? Consulte nossas especialistas e saiba como o Refinanciamento de Veículos pode te ajudar!',
     text4: 'Refinancie seu veículo agora mesmo e tenha mais tranquilidade financeira!',
+    text5: 'Veja as vantagens e qualidades desse empréstimo:',
+    text6: '1. Juros baixos e parcelas acessíveis para você organizar suas finanças.',
+    text7: '2. Troque suas dívidas com juros abusivos por apenas um boleto com juros mais baixos.',
+    text8: '3. As melhores taxas para seu empréstimo.',
     image: refin1,
   },
   {
     title: 'Refinanciamento de Caminhões',
-    text1: 'O Refinanciamento de Caminhões Credito Completo é a solução ideal para transportadores que buscam reduzir as taxas de juros e as parcelas do financiamento do seu caminhão.',
-    text2: 'Com nosso refinanciamento, você libera mais dinheiro do valor do seu caminhão e pode utilizá-lo para investir no seu negócio, comprar novos equipamentos, ampliar sua frota ou o que você precisar para aumentar sua lucratividade.',
-    text3: 'Está precisando de um fôlego novo para o seu negócio? Consulte nossas especialistas e saiba como o Refinanciamento de Caminhões Credito Completo pode te ajudar!',
-    text4: 'Refinancie seu caminhão agora mesmo e tenha mais força para conquistar seus objetivos!',
+    text1: 'O Refinanciamento de Caminhões é a solução ideal para transportadores que buscam reduzir as taxas de juros e as parcelas do financiamento do seu caminhão.',
+    text2: 'Com nosso Refinanciamento de Caminhões, você libera mais dinheiro do valor do seu caminhão e pode utilizá-lo para investir no seu negócio, comprar novos equipamentos, ampliar sua frota ou o que você precisar para aumentar sua lucratividade.',
+    text3: 'Essa é a modalidade de Empréstimo com Caminhão de Garantia também conhecida como refinanciamento de caminhão (PESADOS) ou ainda como refinanciamento de vans, refinanciamento de ônibus...',
+    text4: 'Está precisando de um fôlego novo para o seu negócio? Consulte nossas especialistas e saiba como o Refinanciamento de Caminhões Credito Completo pode te ajudar!',
+    text5: 'Refinancie seu caminhão agora mesmo e tenha mais força para conquistar seus objetivos!',
+    text6: 'Esta operação de refinanciamento de caminhão que também é conhecida como empréstimo com veículo/caminhão leve ou pesado em garantia, é totalmente recomendada para quem esteja utilizando de outros recursos com altíssimo custo financeiro como dívidas de curtíssimo prazo como cheque especial, cartão de crédito e outras.',
     image: refin2,
   }
 ]);
@@ -275,28 +297,28 @@ const abouts2 = ref([
 ]);
 const questions = ref([
   {
-    title: 'O que é o Empréstimo FGTS Credito Completo?',
-    answer: 'A antecipação do FGTS permite que o trabalhador antecipe parte do saldo disponível em sua conta do FGTS, recebendo o valor antecipado de forma imediata, com o pagamento sendo descontado diretamente das parcelas futuras do FGTS.'
+    title: 'O que é Antecipação do Saque-Aniversário FGTS?',
+    answer: 'A antecipação do saque-Aniversário FGTS permite que o trabalhador antecipe parte do saldo disponível em sua conta do FGTS, recebendo o valor antecipado de forma imediata, com o pagamento sendo descontado diretamente do FGTS.'
   },
   {
-    title: 'Quem pode solicitar o Empréstimo FGTS Credito Completo?',
-    answer: 'Trabalhadores com carteira assinada que possuem saldo no FGTS podem solicitar o empréstimo.'
+    title: 'Quem pode solicitar a Antecipação do Saque-Aniversário FGTS?',
+    answer: 'Qualquer pessoa que saldo no FGTS podem solicitar a Antecipação do Saque-Aniversário FGTS.'
   },
   {
     title: 'Como funciona a antecipação do FGTS?',
-    answer: 'A antecipação do FGTS permite que o trabalhador antecipe parte do saldo disponível em sua conta do FGTS, recebendo o valor antecipado de forma imediata, com o pagamento sendo descontado diretamente das parcelas futuras do FGTS.'
+    answer: 'Antecipação do Saque-Aniversário FGTS permite que o trabalhador antecipe parte do saldo disponível em sua conta do FGTS, recebendo o valor antecipado de forma imediata, com o pagamento sendo descontado diretamente das parcelas futuras do FGTS.'
   },
   {
-    title: 'O que é o Refinanciamento de Veículos Credito Completo?',
-    answer: 'É a troca do seu financiamento atual por um novo, com taxas de juros menores, prazos maiores e a possibilidade de liberar dinheiro extra.'
+    title: 'O que é Refinanciamento de Veículos leves?',
+    answer: 'O Refinanciamento de veículos leves é uma modalidade de crédito na qual é necessário deixar um automóvel como garantia de pagamento do empréstimo. Refinanciar um veículo também é sinônimo de empréstimo com garantia de veículo.'
   },
   {
-    title: 'O que é o Empréstimo Conta de Luz Credito Completo?',
-    answer: 'É uma linha de crédito com garantia da sua conta de luz, oferecendo taxas de juros baixas, prazos flexíveis e liberação rápida do dinheiro.'
+    title: 'O que é Emprestimo Pessoal com Parcelamento na Fatura de Energia?',
+    answer: 'Com este serviço a parcela do seu empréstimo virá na sua conta de energia elétrica.'
   },
   {
-    title: 'Quem pode solicitar o Empréstimo Conta de Luz Credito Completo?',
-    answer: 'Titulares de contas de luz residenciais podem solicitar o empréstimo.'
+    title: 'Quem pode solicitar o Emprestimo Pessoal com Parcelamento na Fatura de Energia?',
+    answer: 'Pode solicitar o Emprestimo Pessoal com Parcelamento na Fatura de Energia quem tenha conta de energia no nome. Ter fornecimento de energia no enredeço informado; Ter conta em Banco em nome do Cliente para receber o crédito; Limide de idade de 21 a 84 anos.'
   },
   
 ]);
@@ -310,8 +332,13 @@ const redirect = (link: string) => {
   window.location.href = link;
 };
 // Adicionando a lista de imagens para o carrossel
-const images = ref([Logo, emprestimo1, emprestimo2]);
+const images = ref([clientimg1, clientimg2, clientimg3]);
 
+const carouselCaptions = ref([
+  "Frase para o slide 1",
+  "Frase para o slide 2",
+  "Frase para o slide 3"
+]);
 // Variável para controlar o índice da imagem atual no carrossel
 const currentIndex = ref(0);
 
@@ -395,6 +422,14 @@ const checkScreenSize = () => {
     width: 36%;
     border-radius: 50%;
 }
+.img-fluid {
+    width: 86% !important;
+    display: flex !important;
+    height: auto!important;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10%;
+}
 }
 /* Hero Section */
 .hero-section {
@@ -448,9 +483,9 @@ const checkScreenSize = () => {
   background-color: green;
 }
 .img-fluid {
-  width: 70%;
+  width: 73%;
   display: flex;
-  height: 100%;
+  height: 501px;
   justify-content: space-around;
   align-items: center;
   border-radius: 10%;
@@ -520,22 +555,31 @@ const checkScreenSize = () => {
   justify-content: space-around;
 }
 /* Caurossel */
+.caption-text{
+
+}
+.carousel-caption {
+  text-align: center;
+  font-size: 1.5rem;
+  color: black;
+  
+}
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Altere conforme necessário */
+  max-width: 500px;
   margin: 0 auto;
   overflow: hidden;
 }
 
 .carousel-slide {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .carousel-slide img {
-  width: 90%;
-  height: auto;
+  width: 70%;
+  height: 200px;
   display: none;
   border-radius: 20%;
 }
