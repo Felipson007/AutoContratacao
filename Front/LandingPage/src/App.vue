@@ -135,17 +135,18 @@
           </b-col>
 
         <!-- Carrossel de imagens -->
-        <b-col md="5">
- 
-          <div class="carousel-container">
-            <div class="carousel-slide">
-              <img v-for="(image, index) in images" :key="index" :src="image" :class="{ 'active': index === currentIndex }" alt="Slide">
+          <b-col md="5">
+            <div class="container-carousel-div">
+              <div class="carousel-container">
+                <div class="carousel-slide">
+                  <img v-for="(image, index) in images" :key="index" :src="image" :class="{ 'active': index === currentIndex }" alt="Slide">
+                </div>
+              </div>
+              <div class="caption-text">
+                <p  v-text="carouselCaptions[currentIndex]"></p>
+              </div>
             </div>
-            <div class="caption-text">
-              <p class="carousel-caption" v-text="carouselCaptions[currentIndex]"></p>
-          </div>
-            
-          </div>
+
         </b-col>
         </b-row>
         <div class="btn2">
@@ -167,9 +168,9 @@
               <h4>Links Úteis</h4>
               <ul class="list-unstyled">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#aboutus">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
               </ul>
             </div>
             <div class="col-md-4" id="contact">
@@ -202,9 +203,6 @@
 <script setup lang="ts">
 import { ref, watchEffect, onMounted } from 'vue';
 import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse  } from 'bootstrap-vue-3'
-import Logo from '@/assets/Logo.jpg';
-import emprestimo1 from '@/assets/emprestimo1.jpg';
-import emprestimo2 from '@/assets/emprestimo2.jpg';
 import FGTS from '@/assets/FGTS.jpg';
 import Energia from '@/assets/Energia.jpg';
 import refin1 from '@/assets/refin1.png';
@@ -333,11 +331,10 @@ const redirect = (link: string) => {
 };
 // Adicionando a lista de imagens para o carrossel
 const images = ref([clientimg1, clientimg2, clientimg3]);
-
 const carouselCaptions = ref([
-  "Adorei o atendimento, gratidão. Muito educados e não nos deixa sem retorno.",
-  "Muito simpáticos e cumprem com o combinado, super indico.",
-  "Obrigado pela atenção e tirar minhas duvidas, fiz o meu empréstimo com segurança devido ao atendimento."
+  "'Adorei o atendimento, gratidão. Muito educados e não nos deixa sem retorno.'",
+  "'Muito simpáticos e cumprem com o combinado, super indico.'",
+  "'Obrigado pela atenção e tirar minhas duvidas, fiz o meu empréstimo com segurança devido ao atendimento.'"
 ]);
 // Variável para controlar o índice da imagem atual no carrossel
 const currentIndex = ref(0);
@@ -372,9 +369,11 @@ const checkScreenSize = () => {
 <style scoped>
 .page{
   overflow-x: hidden;
+
 }
 .Main-Section {
   margin-top: 65px;
+
 }
 /* Navbar styles */
 .logo {
@@ -498,7 +497,7 @@ const checkScreenSize = () => {
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 300 !important;
 }
 .text-about {
   padding-top: 20px;
@@ -555,14 +554,32 @@ const checkScreenSize = () => {
   justify-content: space-around;
 }
 /* Caurossel */
-.caption-text{
 
+.carousel-container {
+  position: relative;
 }
+
+.carousel-slide {
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  display: none;
+}
+
+.carousel-slide img.active {
+  display: block;
+}
+
+.caption-text {
+  margin-top: 10px; /* Ajuste o espaço entre o carrossel e a legenda conforme necessário */
+  text-align: center; /* Centraliza o texto, opcional */
+  font-size: 16px;
+}
+
 .carousel-caption {
-  text-align: center;
-  font-size: 1.5rem;
-  color: black;
-  
+  font-size: 16px; /* Ajuste o tamanho da fonte conforme necessário */
 }
 .carousel-container {
   position: relative;
@@ -574,14 +591,17 @@ const checkScreenSize = () => {
 
 .carousel-slide {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
-
+.caption-text p{
+  font-size: 1.1rem;
+  color: black;
+  font-weight: 400;
+}
 .carousel-slide img {
-  width: 70%;
-  height: 200px;
+  width: 30%;
+  height: 150px;
   display: none;
-  border-radius: 20%;
 }
 
 .carousel-slide img.active {
