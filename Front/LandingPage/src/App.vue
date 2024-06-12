@@ -289,9 +289,9 @@ const abouts2 = ref([
   {
     title: 'Sobre Nós',
     subtitle: 'Conheça a Credito Completo',
-    text1: 'Com mais de 10 anos no mercado de crédito, a CrediConfiance tem conquistado cada vez mais espaço no mercado nacional. Inicialmente operando no interior de São Paulo com 4 agências focadas em atendimento presencial, iniciou em 2020 sua expansão digital utilizando sua expertise para atender clientes em todo o Brasil.',
-    text2: 'Com princípios éticos inegociáveis, a CrediConfiance tem como maior prêmio o reconhecimento de seus cliente e se orgulha por ser lembrada nos orgãos fiscalizadores como uma empresa séria e amiga do cliente.',
-    text3: 'Essa é a CrediConfiance, um empresa feita de gente que trabalha para para promover crédito de forma justa, rápida e descomplicada.',
+    text1: 'Com 12 anos no mercado de crédito a Credito Completo tem como base o respeito aos seus clientes e atenção desde o primeiro minuto.',
+    text2: 'Devido a isso estamos há 12 anos no mercado e a cada dia tratando com mais respeito e dedicação nossos clientes.',
+    text3: 'Sempre prezamos pela ética e enteder as necessidades dos nossos clientes para que possamos oferecer o melhor.',
 
   }
 ]);
@@ -335,9 +335,9 @@ const redirect = (link: string) => {
 const images = ref([clientimg1, clientimg2, clientimg3]);
 
 const carouselCaptions = ref([
-  "Frase para o slide 1",
-  "Frase para o slide 2",
-  "Frase para o slide 3"
+  "Adorei o atendimento, gratidão. Muito educados e não nos deixa sem retorno.",
+  "Muito simpáticos e cumprem com o combinado, super indico.",
+  "Obrigado pela atenção e tirar minhas duvidas, fiz o meu empréstimo com segurança devido ao atendimento."
 ]);
 // Variável para controlar o índice da imagem atual no carrossel
 const currentIndex = ref(0);
