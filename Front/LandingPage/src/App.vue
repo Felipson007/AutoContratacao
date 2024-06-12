@@ -136,14 +136,14 @@
 
         <!-- Carrossel de imagens -->
         <b-col md="5">
-          <div class="caption-text">
-              <p class="carousel-caption" v-text="carouselCaptions[currentIndex]"></p>
-          </div>
+ 
           <div class="carousel-container">
             <div class="carousel-slide">
               <img v-for="(image, index) in images" :key="index" :src="image" :class="{ 'active': index === currentIndex }" alt="Slide">
             </div>
-
+            <div class="caption-text">
+              <p class="carousel-caption" v-text="carouselCaptions[currentIndex]"></p>
+          </div>
             
           </div>
         </b-col>
