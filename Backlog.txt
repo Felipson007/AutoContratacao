@@ -1,6 +1,6 @@
 TODO:
 
-
+7) Colocar Blog no site e sempre usar palavras chave.
 
 2)Adicionar atualizações semanais.
 Para postar atualização ou oferta. Ou evento que organizará.
@@ -14,7 +14,6 @@ Pedir para o Gemini fazer um anúncio desse produto. Pega esse conteúdo e joga 
 Criar um CTA que é uma chamada para ação. Que é o clique aqui, Saiba mais, compre agora...
 FOTO DESCRIÇÃO SAIBA MAIS
 
-
 3) Criar um Link de Avaliação.
 
 4)Google Alerts
@@ -27,8 +26,6 @@ Te traz todo histórico do que está funcionando melhor.
 
 6) se inscrever no Google Trends.
 Dá para sabe o que estão procurando sobre o nosso produto, dá para tirar ideias daqui, 
-
-7) Colocar Blog no site e sempre usar palavras chave.
 
 8) Colocar no titulo dos posts na URL amigavel o nome do meu negocio, produto, cidade ou palavras que os clientes procuram pelo meu negocio.
 
@@ -49,4 +46,4 @@ Pesquisa de site/portais que podemos colocar nossas postagens/conteúdo
 
 - Página do Facebook. Acesso total de Administrador da página e do Gerenciador de Negócios;
 
-- Site atualizado com as informações da empresa no rodapé (razão social completa, número do cartão CNPJ e endereço completo);
+ 
