@@ -5,16 +5,16 @@
       <!-- Navbar -->
       <b-navbar variant="light" type="light" fixed="top">
         <b-container class="d-flex justify-content-between align-items-center">
-          <b-navbar-brand class="d-flex align-items-center" href="#home">
+          <b-navbar-brand class="d-flex align-items-center" @click="scrollTo('#home')">
             <img src="@/assets/Logo.jpg" alt="Logo da Empresa" class="d-inline-block align-top logo"  />
             <span class="ml-2">Crédito Completo</span>
           </b-navbar-brand>
-          <div class="navbar-respons" v-if="!isMobileMode">
+          <div class="navbar-respons"  v-if="!isMobileMode">
             <b-navbar-nav class="ml-auto">
-            <b-nav-item href="#home">Home</b-nav-item>
-            <b-nav-item href="#about">Sobre</b-nav-item>
-            <b-nav-item href="#aboutus">Nós</b-nav-item>
-            <b-nav-item href="#contact">Contato</b-nav-item>
+            <b-nav-item @click="scrollTo('#home')">Home</b-nav-item>
+            <b-nav-item @click="scrollTo('#about')">Sobre</b-nav-item>
+            <b-nav-item @click="scrollTo('#aboutus')">Nós</b-nav-item>
+            <b-nav-item @click="scrollTo('#contact')">Contato</b-nav-item>
           </b-navbar-nav>
           </div>
 
@@ -167,18 +167,18 @@
             <div class="col-md-4">
               <h4>Links Úteis</h4>
               <ul class="list-unstyled">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#aboutus">Serviços</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li><a @click="scrollTo('#home')">Home</a></li>
+                <li><a @click="scrollTo('#about')">Sobre</a></li>
+                <li><a @click="scrollTo('#aboutus')">Serviços</a></li>
+                <li><a @click="scrollTo('#contact')">Contato</a></li>
               </ul>
             </div>
             <div class="col-md-4" id="contact">
               <h4>Fale Conosco</h4>
               <ul class="list-unstyled">
-                <li><a href="https://api.whatsapp.com/send?phone=5515988200549&text=Ol%C3%A1,%20vim%20pelo%20site%20e%20preciso%20de%20ajuda!!"><i class="fa-solid fa-phone"></i> (15) 98820-0549</a></li>
-                <li><a href="#"><i class="fab fa-whatsapp"></i> (15) 3342-7141</a></li>
-                <li><a href="#"><i class="fa-regular fa-envelope"></i> felipe.s.souza@outlook.com.br</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=5515988200549&text=Ol%C3%A1,%20vim%20pelo%20site%20e%20preciso%20de%20ajuda!!"> <i class="fab fa-whatsapp"></i> (15) 98820-0549</a></li>
+                <li><a href="tel:+551533427141"> <i class="fa-solid fa-phone"></i> (15) 3342-7141</a></li>
+                <li><a href="mailto:Contato@creditocompleto.com.br"><i class="fa-regular fa-envelope"></i> Contato@creditocompleto.com.br</a></li>
               </ul>
             </div>
             <div class="col-md-4">
@@ -211,17 +211,18 @@ import clientimg1 from '@/assets/clientimg1.png';
 import clientimg2 from '@/assets/clientimg2.png';
 import clientimg3 from '@/assets/clientimg3.png';
 const cards = ref([
-  {
-    title: 'Antecipação FGTS',
-    description: 'Antecipe seu FGTS e tenha ainda hoje o dinheiro na sua conta.',
-    icon: 'fa-solid fa-brazilian-real-sign',
-    link: 'https://contratacao-digital.azurewebsites.net/home/a25GdEFMK0hkMlhQengvMUw4UjFodlUyTDkwWlc5a0puUXBBVTFWbnoybUwxWmEveGF6N01JWEJVclVoRkdBVw=='
-  },
+
   {
     title: 'Conta de Energia',
     description: 'Obtenha crédito com garantia da sua conta de luz.',
     icon: 'fa-solid fa-file-contract',
     link: 'https://www.example.com'
+  },
+  {
+    title: 'Antecipação FGTS',
+    description: 'Antecipe seu FGTS e tenha ainda hoje o dinheiro na sua conta.',
+    icon: 'fa-solid fa-brazilian-real-sign',
+    link: 'https://contratacao-digital.azurewebsites.net/home/a25GdEFMK0hkMlhQengvMUw4UjFodlUyTDkwWlc5a0puUXBBVTFWbnoybUwxWmEveGF6N01JWEJVclVoRkdBVw=='
   },
   {
     title: 'Refin de veiculos',
@@ -238,15 +239,7 @@ const cards = ref([
 ]);
 
 const abouts = ref([
-  {
-    title: 'Antecipação de Saque Aniversário FGTS',
-    text1: 'Antecipação de Saque aniversário FGTS é a solução inteligente para quem busca um empréstimo utilizando o saque aniversário antecipado do FGTS de forma rápida, fácil e sem complicação.',
-    text2: 'O Saque Aniversário Antecipado do FGTS é sem burocracia, você garante dinheiro na mão em poucas horas e realiza seus sonhos sem precisar esperar.',
-    text3: 'Precisa daquela força no orçamento e quer sacar seu FGTS? Consulte nossos especialistas e descubra como consultar o FGTS e liberar Saque Aniversário Antecipado do FGTS.',
-    text4: 'Com a Antecipação do Saque-Aniversário FGTS, você não compromete sua renda mensal.',
-    text5: 'Empréstimo FGTS é uma nova modalidade de empréstimo para pessoas quem possuem saldo no FGTS e que aderiram ao Saque-Aniversário.',
-    image: FGTS,
-  },
+
   {
     title: "Crédito na Conta de Energia",
     text1: "O empréstimo na Conta de Energia é a solução rápida e prática para você que precisa de dinheiro na mão. Nosso serviço de empréstimo conta de luz oferece conveniência e facilidade.",
@@ -259,6 +252,15 @@ const abouts = ref([
     text8: "Em até 22X.",
     text9: "Pagamento em até 24 horas após a aprovação.",
     image: Energia
+  },
+  {
+    title: 'Antecipação de Saque Aniversário FGTS',
+    text1: 'Antecipação de Saque aniversário FGTS é a solução inteligente para quem busca um empréstimo utilizando o saque aniversário antecipado do FGTS de forma rápida, fácil e sem complicação.',
+    text2: 'O Saque Aniversário Antecipado do FGTS é sem burocracia, você garante dinheiro na mão em poucas horas e realiza seus sonhos sem precisar esperar.',
+    text3: 'Precisa daquela força no orçamento e quer sacar seu FGTS? Consulte nossos especialistas e descubra como consultar o FGTS e liberar Saque Aniversário Antecipado do FGTS.',
+    text4: 'Com a Antecipação do Saque-Aniversário FGTS, você não compromete sua renda mensal.',
+    text5: 'Empréstimo FGTS é uma nova modalidade de empréstimo para pessoas quem possuem saldo no FGTS e que aderiram ao Saque-Aniversário.',
+    image: FGTS,
   },
   {
     title: 'Refinanciamento de Veículos',
@@ -320,7 +322,18 @@ const questions = ref([
   },
   
 ]);
+function scrollTo(selector: string): void {
+  const target = document.querySelector(selector);
 
+  if (target instanceof Element) {
+    target.scrollIntoView({
+      behavior: 'smooth'
+    });
+  } else {
+    console.warn(`Element with selector '${selector}' not found.`);
+  }
+}
+  
 const show = ref(questions.value.map(() => false));
 const toggle = (index: number) => {
   show.value[index] = !show.value[index];
@@ -399,26 +412,36 @@ const checkScreenSize = () => {
   width: 23%;
 }
 @media only screen and (max-width: 900px) {
+.cards-section{
+    margin-top: -186px !important;
+  }
+.hero-section{
+    height: 425px !important;
+  }
   .col-md-4 {
   flex: 0 0 auto;
   width: 100%;
 }
 .hero-img img{
-    margin-top: 38% !important;
-    margin-right: 46% !important;
-    width: 37% !important;
+  margin-top: 13% !important;
+  margin-right: 74% !important;
+  width: 37% !important;
 }
 .hero-text h1{
-    position: absolute;
-    top: 44% !important;
-    text-align: right;
-    left: 76% !important;
-    font-size: 2rem !important;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 36% !important;
+  text-align: right;
+  text-align: center !important;
+  left: 63% !important;
+  font-size: 2rem !important;
+  transform: translate(-50%, -50%);
+}
+.fixed-top {
+  position: absolute;
 }
 .logo {
     height: 28%;
-    width: 36%;
+    width: 43%;
     border-radius: 50%;
 }
 .img-fluid {
@@ -428,6 +451,9 @@ const checkScreenSize = () => {
     justify-content: space-around;
     align-items: center;
     border-radius: 10%;
+}
+.ml-2{
+  font-size: 1.4rem !important;
 }
 }
 /* Hero Section */

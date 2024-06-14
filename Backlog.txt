@@ -1,19 +1,47 @@
 TODO:
-	Colocar imagem no começo mais humanizada
-	Ajustar imagens
-	Higienizar planilha unimed
-	
-Olá, tudo bem?
-Vamos verificar se você tem *crédito consignado pela empresa que você trabalha?*
+- Aumentar header, tirar imagem da mulher e centralizar o texto, para celular
 
-Caso tenha e seja aprovado as *taxas são super baixas.*
+- trocar email e contato no site
 
-*Responda com 1 para Receber ajuda sem compromisso.*
-
-Ou responda com 2 para não receber mais mensagens.
+- ajustar URL
 
 
-palavras chaves conta de luz e conta de energia e refin
 
-so quero o boleto do saque 
 
+1) Google Empresas - Meu negócio
+Criar no google perfil de Empresas e Maps antigo Google Meu negócio.
+
+2)Adicionar atualizações semanais.
+Para postar atualização ou oferta. Ou evento que organizará.
+Foto.. descrição...link para seu site
+Pegar foto no site pixels.com
+
+Sempre renomear as fotos antes de jogar no Google.
+Ou se tiver uma foto do seu produto mas sempre renomear.
+Pedir para o Gemini fazer um anúncio desse produto. Pega esse conteúdo e joga no assunto. Mas muda um pouco o texto para não ser punido pelo Google.
+
+Criar um CTA que é uma chamada para ação. Que é o clique aqui, Saiba mais, compre agora...
+FOTO DESCRIÇÃO SAIBA MAIS
+
+
+3) Criar um Link de Avaliação.
+
+4)Google Alerts
+O que vc quer saber a respeito do assunto da sua empresa?
+O Google te manda informações do seu negócio.
+Daqui pode tirar palavras chaves, concorrentes, etc.
+
+5) Criar o Goggle Analytics
+Te traz todo histórico do que está funcionando melhor.
+
+6) se inscrever no Google Trends.
+Dá para sabe o que estão procurando sobre o nosso produto, dá para tirar ideias daqui, 
+
+7) Colocar Blog no site e sempre usar palavras chave.
+
+8) Colocar no titulo dos posts na URL amigavel o nome do meu negocio, produto, cidade ou palavras que os clientes procuram pelo meu negocio.
+
+9)Pesquisar portais de Sorocaba e qualquer outra cidade.
+Tudo que fizer no site colocar em portais ou outros sites.
+Quantos mais aparecer nesses sites melhor o posicionamento no Google.
+Colocar sempre o nome da minha empresa, palavras chaves, link, etc.
