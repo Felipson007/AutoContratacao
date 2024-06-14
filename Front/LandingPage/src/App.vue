@@ -159,18 +159,18 @@
 
       <!-- Footer -->
       <footer class="footer">
-        <div class="container">
+        <div class="container footer-container">
           <div class="row">
             <div class="col-md-4" v-if="!isMobileMode">
               <img src="@/assets/Logo.jpg" alt="Logo" class="logo">
             </div>
             <div class="col-md-4">
-              <h4>Links Úteis</h4>
+              <h4>Sobre Nós</h4>
               <ul class="list-unstyled">
-                <li><a @click="scrollTo('#home')">Home</a></li>
-                <li><a @click="scrollTo('#about')">Sobre</a></li>
-                <li><a @click="scrollTo('#aboutus')">Serviços</a></li>
-                <li><a @click="scrollTo('#contact')">Contato</a></li>
+                <li><a>FLBM PRMOCOES DE VENDAS LTDA</a></li>
+                <li><a>15.067.608/0001-00</a></li>
+                <li><a>Largo de São Bento, 63, Jardim Santa Clara, Sorocaba - SP, 18010-030</a></li>
+                <li><a></a></li>
               </ul>
             </div>
             <div class="col-md-4" id="contact">
@@ -178,7 +178,7 @@
               <ul class="list-unstyled">
                 <li><a href="https://api.whatsapp.com/send?phone=5515988200549&text=Ol%C3%A1,%20vim%20pelo%20site%20e%20preciso%20de%20ajuda!!"> <i class="fab fa-whatsapp"></i> (15) 98820-0549</a></li>
                 <li><a href="tel:+551533427141"> <i class="fa-solid fa-phone"></i> (15) 3342-7141</a></li>
-                <li><a href="mailto:Contato@creditocompleto.com.br"><i class="fa-regular fa-envelope"></i> Contato@creditocompleto.com.br</a></li>
+                <li><a href="mailto:Contato@creditocompleto.com.br"><i class="fa-regular fa-envelope"></i> contato@creditocompleto.com.br</a></li>
               </ul>
             </div>
             <div class="col-md-4">
@@ -218,7 +218,7 @@ const cards = ref([
     icon: 'fa-solid fa-file-contract',
     link: 'https://www.example.com'
   },
-  {
+    {
     title: 'Antecipação FGTS',
     description: 'Antecipe seu FGTS e tenha ainda hoje o dinheiro na sua conta.',
     icon: 'fa-solid fa-brazilian-real-sign',
@@ -667,6 +667,9 @@ const checkScreenSize = () => {
   padding: 60px 0 0 0;
   width: 100%;
   position: absolute;
+}
+.footer-container{
+  text-align: center;
 }
 .footer .container {
   display: flex;
