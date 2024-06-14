@@ -184,9 +184,9 @@
             <div class="col-md-4">
               <h4>Redes Sociais</h4>
               <ul class="list-unstyled social-media">
-                <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61560990752254&mibextid=ZbWKwL"><i class="fab fa-facebook"></i> Facebook</a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://www.instagram.com/creditocompleto?igsh=YWwxeWdoNG0waG93"><i class="fab fa-instagram"></i> Instagram</a></li>
                 <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
               </ul>
             </div>
