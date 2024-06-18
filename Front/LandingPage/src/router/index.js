@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../App.vue';
+import Blog from '../pages/blog.vue'
 
 const routes = [
     {
@@ -7,7 +8,11 @@ const routes = [
         name: 'Home',
         component: Home
     },
-    // Outras rotas do seu aplicativo
+    {
+        path: '/blog',
+        name: 'Blog',
+        component: Blog
+     },
 ];
 
 const router = createRouter({
