@@ -1,23 +1,24 @@
+// Altere o import no seu arquivo `router/index.js` para não usar `default`
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../App.vue';
-import Blog from '../pages/blog.vue'
+import LandingPage from '@/pages/LandingPage.vue';
+import BlogPage from '@/pages/BlogPage.vue';
 
 const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Home
-    },
-    {
-        path: '/blog',
-        name: 'Blog',
-        component: Blog
-     },
+  {
+    path: '/',
+    name: 'LandingPage',
+    component: LandingPage,
+  },
+  {
+    path: '/blog',
+    name: 'BlogPage',
+    component: BlogPage,
+  },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 });
 
 export default router;
