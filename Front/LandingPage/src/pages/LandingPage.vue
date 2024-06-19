@@ -15,6 +15,7 @@
               <b-nav-item @click="scrollTo('#about')">Sobre</b-nav-item>
               <b-nav-item @click="scrollTo('#aboutus')">Nós</b-nav-item>
               <router-link to="/blog" class="nav-link">Blog</router-link>
+              <router-link to="/login" class="nav-link">login</router-link>
             </b-navbar-nav>
             </div>
   
@@ -201,7 +202,8 @@
   </template>
   
   <script setup lang="ts">
-  import { ref, watchEffect, onMounted } from 'vue';
+  import { ref, watchEffect, onMounted, computed } from 'vue';
+  import { Router, useRouter } from 'vue-router';
   import { BNavbar, BContainer, BNavbarBrand, BNavbarNav, BNavItem, BRow, BCol, BCard, BCollapse  } from 'bootstrap-vue-3'
   import FGTS from '@/assets/FGTS.jpg';
   import Energia from '@/assets/Energia.jpg';
@@ -210,6 +212,7 @@
   import clientimg1 from '@/assets/clientimg1.png';
   import clientimg2 from '@/assets/clientimg2.png';
   import clientimg3 from '@/assets/clientimg3.png';
+  
   const cards = ref([
   
     {
@@ -342,40 +345,42 @@
   const redirect = (link: string) => {
     window.location.href = link;
   };
-  // Adicionando a lista de imagens para o carrossel
+
   const images = ref([clientimg1, clientimg2, clientimg3]);
   const carouselCaptions = ref([
     "'Adorei o atendimento, gratidão. Muito educados e não nos deixa sem retorno.'",
     "'Muito simpáticos e cumprem com o combinado, super indico.'",
     "'Obrigado pela atenção e tirar minhas duvidas, fiz o meu empréstimo com segurança devido ao atendimento.'"
   ]);
-  // Variável para controlar o índice da imagem atual no carrossel
+
   const currentIndex = ref(0);
   
-  // Método para mudar a imagem do carrossel
+
   const changeSlide = (index: number) => {
     currentIndex.value = index;
   };
   watchEffect(() => {
     const interval = setInterval(() => {
       currentIndex.value = (currentIndex.value + 1) % images.value.length;
-    }, 5000); // Mudança a cada 5 segundos
+    }, 5000); 
   
     return () => clearInterval(interval);
   });
   const isMobileMode = ref(false);
   
   onMounted(() => {
-    // Verifica o tamanho da tela ao montar o componente
     checkScreenSize();
-    // Adiciona um listener para verificar quando o tamanho da tela mudar
     window.addEventListener('resize', checkScreenSize);
   });
   
   const checkScreenSize = () => {
-    // Verifica se a largura da tela é menor ou igual a 768 pixels (considerando como modo celular)
+
     isMobileMode.value = window.innerWidth <= 768;
   };
+  // Computed properties and methods
+  const isAuthenticated = computed(() => {
+      return localStorage.getItem('authenticated') === 'true';
+    });
   </script>
   
   

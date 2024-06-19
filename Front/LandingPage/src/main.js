@@ -11,5 +11,17 @@ import BootstrapVue3 from 'bootstrap-vue-3';
 const app = createApp(App);
 app.use(router);
 app.use(BootstrapVue3);
-app.use(router);
-app.mount('#app');
+router.beforeEach((to, from, next) => {
+  const authenticated = localStorage.getItem('authenticated') === 'true';
+  if (to.name === 'PostEditor' || to.name === 'EditPost') {
+    if (!authenticated) {
+      next({ name: 'Login' });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
+app.use(router).mount('#app');
