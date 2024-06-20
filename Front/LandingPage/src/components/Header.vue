@@ -10,11 +10,7 @@
           </b-navbar-brand>
           <div class="navbar-respons" v-if="!isMobileMode">
             <b-navbar-nav class="ml-auto">
-              <b-nav-item @click="scrollTo('#home')">Home</b-nav-item>
-              <b-nav-item @click="scrollTo('#about')">Sobre</b-nav-item>
-              <b-nav-item @click="scrollTo('#aboutus')">Nós</b-nav-item>
-              <b-nav-item @click="scrollTo('#contact')">Contato</b-nav-item>
-              <b-nav-item @click="goToBlog">Blog</b-nav-item>
+              <b-nav-item to="/" >Home</b-nav-item>
               <b-nav-item v-if="isAuthenticated" @click="logout">Logout</b-nav-item>
               <b-nav-item v-if="!isAuthenticated" to="/Login">Login</b-nav-item>
             </b-navbar-nav>
@@ -38,9 +34,6 @@ export default {
     }
   },
   methods: {
-    scrollTo(section) {
-      // Implementar rolagem suave para seções específicas
-    },
     goToBlog() {
       this.$router.push('/blog');
     },
@@ -75,6 +68,10 @@ export default {
   .col-md-4 {
     flex: 0 0 auto;
     width: 23%;
+  }
+  .fixed-top{
+    font-size: 1.2rem;
+    font-weight: 500;
   }
   @media only screen and (max-width: 900px) {
   .fixed-top {

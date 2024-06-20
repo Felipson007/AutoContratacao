@@ -15,7 +15,6 @@
               <b-nav-item @click="scrollTo('#about')">Sobre</b-nav-item>
               <b-nav-item @click="scrollTo('#aboutus')">Nós</b-nav-item>
               <router-link to="/blog" class="nav-link">Blog</router-link>
-              <router-link to="/login" class="nav-link">login</router-link>
             </b-navbar-nav>
             </div>
   

@@ -4,10 +4,10 @@
     <div class="container mt-5 pt-5">
       <h1>Blog de Matérias</h1>
       <div class="filter mb-4">
-        <button @click="filterPosts('ALL')">TODAS</button>
-        <button @click="filterPosts('FGTS')">FGTS</button>
-        <button @click="filterPosts('EMP_VEICULOS')">Empréstimo Veículos</button>
-        <button @click="filterPosts('EMP_CONTA_LUZ')">Empréstimo na Conta de Luz</button>
+        <b-button @click="filterPosts('ALL')">TODAS</b-button>
+        <b-button @click="filterPosts('FGTS')">FGTS</b-button>
+        <b-button @click="filterPosts('EMP_VEICULOS')">Empréstimo Veículos</b-button>
+        <b-button @click="filterPosts('EMP_CONTA_LUZ')">Empréstimo na Conta de Luz</b-button>
       </div>
       <router-link to="/editor" v-if="isAuthenticated" class="btn btn-primary mb-4">Nova Postagem</router-link>
       <div class="row" id="posts-container">
@@ -70,5 +70,8 @@ export default {
 </script>
 
 <style scoped>
-/* Adicione seus estilos aqui */
+.filter{
+  display: flex;
+  justify-content: space-evenly;
+}
 </style>
