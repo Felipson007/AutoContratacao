@@ -2,7 +2,6 @@
   <div>
     <Header />
     <div class="container mt-5 pt-5">
-      <h1>Blog de Matérias</h1>
       <div class="filter mb-4">
         <b-button @click="filterPosts('ALL')">TODAS</b-button>
         <b-button @click="filterPosts('FGTS')">FGTS</b-button>

@@ -12,7 +12,7 @@
             <b-navbar-nav class="ml-auto">
               <b-nav-item to="/" >Home</b-nav-item>
               <b-nav-item v-if="isAuthenticated" @click="logout">Logout</b-nav-item>
-              <b-nav-item v-if="!isAuthenticated" to="/Login">Login</b-nav-item>
+              <b-button v-if="!isAuthenticated" to="/Login">Login</b-button>
             </b-navbar-nav>
           </div>
         </b-container>
