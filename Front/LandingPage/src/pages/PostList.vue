@@ -8,6 +8,9 @@
           <div class="card mb-4 h-100">
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ post.title }}</h5>
+              <div v-if="post.image" class="mb-2">
+                <img :src="post.image" alt="Post Image" class="img-thumbnail">
+              </div>
               <p class="card-text">{{ post.summary }}</p>
               <router-link :to="'/post/' + post.id" class="btn btn-primary mt-auto">Leia mais</router-link>
               <div class="container-div mt-2" v-if="isAuthenticated">
@@ -75,5 +78,9 @@ export default {
 }
 .card {
   height: 100%;
+}
+.img-thumbnail {
+  max-height: 150px;
+  object-fit: cover;
 }
 </style>

@@ -93,5 +93,7 @@ export default {
 </script>
 
 <style scoped>
-/* Adicione seus estilos aqui */
+.form-group{
+  margin-bottom: 20px;
+}
 </style>
