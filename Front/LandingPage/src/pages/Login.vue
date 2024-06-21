@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     login() {
-      if (this.username === 'felipe' && this.password === 'felipe') {
+      if (this.username === 'creditocompleto' && this.password === 'creditocompleto') {
         localStorage.setItem('authenticated', 'true');
         this.$router.push('/blog');
       } else {
