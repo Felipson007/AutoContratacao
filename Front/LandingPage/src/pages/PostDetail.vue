@@ -3,7 +3,7 @@
     <Header />
     <div class="container mt-5 pt-5">
       <router-link to="/blog" class="btn btn-secondary mb-4">Voltar</router-link>
-      <div v-if="post">
+      <div v-if="post" class="text-center">
         <h1>{{ post.title }}</h1>
         <div v-if="post.image">
           <img :src="post.image" alt="Post Image" class="img-fluid mb-4">
@@ -38,5 +38,12 @@ export default {
 </script>
 
 <style scoped>
-/* Adicione seus estilos aqui */
+.text-center {
+  text-align: center;
+}
+.img-fluid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
