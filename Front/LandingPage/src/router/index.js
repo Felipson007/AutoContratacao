@@ -20,6 +20,7 @@ const routes = [
     path: '/post/:id',
     name: 'PostDetail',
     component: PostDetail,
+    props: true, // Pass route params as props to PostDetail.vue
   },
   {
     path: '/editor',
@@ -30,6 +31,7 @@ const routes = [
     path: '/editor/:id',
     name: 'EditPost',
     component: PostEditor,
+    props: true, // Pass route params as props to PostEditor.vue
   },
   {
     path: '/login',

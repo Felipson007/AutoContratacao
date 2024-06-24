@@ -28,6 +28,7 @@
         <div class="form-group">
           <label for="image">Imagem</label>
           <input type="file" class="form-control" id="image" @change="onImageSelected">
+          <img v-if="post.image" :src="post.image" alt="Post Image" class="img-thumbnail mt-2" style="max-width: 200px;">
         </div>
         <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Salvar Alterações' : 'Adicionar Postagem' }}</button>
       </form>
@@ -37,6 +38,7 @@
 
 <script>
 import Header from '@/components/Header.vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -52,6 +54,7 @@ export default {
         content: '',
         category: 'FGTS',
         image: null,
+        imageUrl: null,
       },
     };
   },
@@ -62,38 +65,52 @@ export default {
     const postId = this.$route.params.id;
     if (postId) {
       this.isEditMode = true;
-      const posts = JSON.parse(localStorage.getItem('posts')) || [];
-      const existingPost = posts.find(post => post.id === Number(postId));
-      if (existingPost) {
-        this.post = { ...existingPost };
-      }
+      this.loadPost(postId);
     }
   },
   methods: {
+    async loadPost(postId) {
+      try {
+        const response = await axios.get(`http://localhost:3000/api/posts/${postId}`);
+        this.post = response.data;
+      } catch (error) {
+        console.error('Error loading post:', error);
+      }
+    },
     onImageSelected(event) {
       const file = event.target.files[0];
-      this.post.image = file ? URL.createObjectURL(file) : null;
+      this.post.image = file;
+      this.post.imageUrl = URL.createObjectURL(file);
     },
-    savePost() {
-      const posts = JSON.parse(localStorage.getItem('posts')) || [];
-      if (this.isEditMode) {
-        const index = posts.findIndex(post => post.id === this.post.id);
-        if (index !== -1) {
-          posts.splice(index, 1, this.post);
+    async savePost() {
+      try {
+        const formData = new FormData();
+        formData.append('title', this.post.title);
+        formData.append('summary', this.post.summary);
+        formData.append('content', this.post.content);
+        formData.append('category', this.post.category);
+        formData.append('image', this.post.image);
+
+        if (this.isEditMode) {
+          await axios.put(`http://localhost:3000/api/posts/${this.post.id}`, formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+          });
+        } else {
+          await axios.post('http://localhost:3000/api/posts', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+          });
         }
-      } else {
-        this.post.id = Date.now();
-        posts.push(this.post);
+        this.$router.push('/blog');
+      } catch (error) {
+        console.error('Error saving post:', error);
       }
-      localStorage.setItem('posts', JSON.stringify(posts));
-      this.$router.push('/blog');
-    }
+    },
   }
 };
 </script>
 
 <style scoped>
-.form-group{
+.form-group {
   margin-bottom: 20px;
 }
 </style>

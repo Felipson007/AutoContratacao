@@ -8,8 +8,8 @@
           <div class="card mb-4 h-100">
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ post.title }}</h5>
-              <div v-if="post.image" class="mb-2">
-                <img :src="post.image" alt="Post Image" class="img-thumbnail">
+              <div v-if="post.imageUrl" class="mb-2">
+                <img :src="post.imageUrl" alt="Post Image" class="img-thumbnail">
               </div>
               <p class="card-text">{{ post.summary }}</p>
               <router-link :to="'/post/' + post.id" class="btn btn-primary mt-auto">Leia mais</router-link>
@@ -27,6 +27,7 @@
 
 <script>
 import Header from '@/components/Header.vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -35,7 +36,7 @@ export default {
   data() {
     return {
       selectedCategory: 'ALL',
-      posts: JSON.parse(localStorage.getItem('posts')) || [],
+      posts: [],
     };
   },
   computed: {
@@ -51,16 +52,31 @@ export default {
     }
   },
   methods: {
+    async fetchPosts() {
+      try {
+        const response = await axios.get('http://localhost:3000/api/posts');
+        this.posts = response.data;
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    },
     filterPosts(category) {
       this.selectedCategory = category;
     },
     editPost(id) {
       this.$router.push({ name: 'EditPost', params: { id } });
     },
-    deletePost(id) {
-      this.posts = this.posts.filter(post => post.id !== id);
-      localStorage.setItem('posts', JSON.stringify(this.posts));
+    async deletePost(id) {
+      try {
+        await axios.delete(`http://localhost:3000/api/posts/${id}`);
+        this.posts = this.posts.filter(post => post.id !== id);
+      } catch (error) {
+        console.error('Error deleting post:', error);
+      }
     }
+  },
+  created() {
+    this.fetchPosts();
   }
 };
 </script>
