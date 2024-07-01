@@ -54,8 +54,13 @@ export default {
   methods: {
     async fetchPosts() {
       try {
-        const response = await axios.get('http://localhost:3000/api/posts');
+        const response = await axios.get('http://localhost:5000/api/posts');
         this.posts = response.data;
+        this.posts.forEach(post => {
+          if (post.image_url) {
+            post.imageUrl = `http://localhost:5000/uploads/${post.image_url}`;
+          }
+        });
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
@@ -68,7 +73,7 @@ export default {
     },
     async deletePost(id) {
       try {
-        await axios.delete(`http://localhost:3000/api/posts/${id}`);
+        await axios.delete(`http://localhost:5000/api/posts/${id}`);
         this.posts = this.posts.filter(post => post.id !== id);
       } catch (error) {
         console.error('Error deleting post:', error);
@@ -98,5 +103,8 @@ export default {
 .img-thumbnail {
   max-height: 150px;
   object-fit: cover;
+}
+.btn {
+  margin-top: 20px !important;
 }
 </style>

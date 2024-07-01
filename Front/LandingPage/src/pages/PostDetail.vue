@@ -5,10 +5,12 @@
       <router-link to="/blog" class="btn btn-secondary mb-4">Voltar</router-link>
       <div v-if="post" class="text-center">
         <h1>{{ post.title }}</h1>
-        <div v-if="post.image">
-          <img :src="post.image" alt="Post Image" class="img-fluid mb-4">
+        <div v-if="post.imageUrl">
+          <img :src="post.imageUrl" alt="Post Image" class="img-fluid mb-4">
         </div>
-        <p>{{ post.content }}</p>
+        <h5 class="text-muted">{{ post.summary }}</h5>
+        <div class="mt-4" v-html="post.content"></div>
+        <span class="badge badge-primary">{{ post.category }}</span>
       </div>
     </div>
   </div>
@@ -16,6 +18,7 @@
 
 <script>
 import Header from '@/components/Header.vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -27,13 +30,22 @@ export default {
     };
   },
   created() {
-    const postId = this.$route.params.id;
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
-    const existingPost = posts.find(post => post.id === Number(postId));
-    if (existingPost) {
-      this.post = existingPost;
-    }
+    this.fetchPost();
   },
+  methods: {
+    async fetchPost() {
+      const postId = this.$route.params.id;
+      try {
+        const response = await axios.get(`http://localhost:5000/api/posts/${postId}`);
+        this.post = response.data;
+        if (this.post.image_url) {
+          this.post.imageUrl = `http://localhost:5000/uploads/${this.post.image_url}`;
+        }
+      } catch (error) {
+        console.error('Error fetching post:', error);
+      }
+    }
+  }
 };
 </script>
 
@@ -45,5 +57,8 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.mt-5 {
+    margin-top: 5rem !important;
 }
 </style>

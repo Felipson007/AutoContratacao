@@ -82,9 +82,11 @@ export default {
   flex: 0 0 auto;
   width: 23%;
 }
+
 .fixed-top {
   align-items: center;
-  font-size: 1rem; 
+  font-size: 1rem;
+  margin-bottom: 20px !important;
   font-weight: 500;
 }
 .filter {

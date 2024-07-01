@@ -28,7 +28,7 @@
         <div class="form-group">
           <label for="image">Imagem</label>
           <input type="file" class="form-control" id="image" @change="onImageSelected">
-          <img v-if="post.image" :src="post.image" alt="Post Image" class="img-thumbnail mt-2" style="max-width: 200px;">
+          <img v-if="post.imageUrl" :src="post.imageUrl" alt="Post Image" class="img-thumbnail mt-2" style="max-width: 200px;">
         </div>
         <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Salvar Alterações' : 'Adicionar Postagem' }}</button>
       </form>
@@ -71,8 +71,9 @@ export default {
   methods: {
     async loadPost(postId) {
       try {
-        const response = await axios.get(`http://localhost:3000/api/posts/${postId}`);
+        const response = await axios.get(`http://localhost:5000/api/posts/${postId}`);
         this.post = response.data;
+        this.post.imageUrl = `http://localhost:5000${response.data.image}`;
       } catch (error) {
         console.error('Error loading post:', error);
       }
@@ -89,14 +90,16 @@ export default {
         formData.append('summary', this.post.summary);
         formData.append('content', this.post.content);
         formData.append('category', this.post.category);
-        formData.append('image', this.post.image);
+        if (this.post.image) {
+          formData.append('image', this.post.image);
+        }
 
         if (this.isEditMode) {
-          await axios.put(`http://localhost:3000/api/posts/${this.post.id}`, formData, {
+          await axios.put(`http://localhost:5000/api/posts/${this.post.id}`, formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
           });
         } else {
-          await axios.post('http://localhost:3000/api/posts', formData, {
+          await axios.post('http://localhost:5000/api/posts', formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
           });
         }
@@ -112,5 +115,8 @@ export default {
 <style scoped>
 .form-group {
   margin-bottom: 20px;
+}
+.mt-5 {
+  margin-top: 5rem !important;
 }
 </style>

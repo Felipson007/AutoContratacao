@@ -7,7 +7,6 @@
       </div>
       <div class="col-md-6">
         <h1>Login</h1>
-
         <b-container class="mt-3">
           <b-form @submit.prevent="login">
             <b-form-group label="Usuário" label-for="username">
@@ -33,8 +32,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   data() {
     return {
       username: '',
@@ -55,7 +56,7 @@ export default {
       }
     }
   }
-};
+});
 </script>
 
 <style scoped>
@@ -64,8 +65,11 @@ export default {
   width: 100%;
   height: auto;
 }
-.button{
+.button {
   text-decoration: none;
   color: black;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 </style>
